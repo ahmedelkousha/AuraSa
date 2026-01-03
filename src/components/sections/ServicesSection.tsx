@@ -107,8 +107,8 @@ const ServicesSection = () => {
               
               <div className="relative z-10">
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center bg-[#cc2ba6] justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-8 h-8 text-primary" />
+                <div className="w-16 h-16 rounded-2xl flex items-center bg-primary justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <service.icon className="w-8 h-8 text-primary-foreground group-hover:text-primary" />
                 </div>
 
                 {/* Content */}

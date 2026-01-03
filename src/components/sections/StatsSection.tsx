@@ -124,8 +124,8 @@ const StatsSection = () => {
               className="stat-card group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-b from-card to-card/50 border border-border hover:border-primary/50 transition-all duration-500 card-hover"
             >
               {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-[#cc2ba6] bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <stat.icon className="w-7 h-7 text-primary " />
+              <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                <stat.icon className="w-7 h-7 text-primary-foreground group-hover:text-primary" />
               </div>
 
               {/* Value */}

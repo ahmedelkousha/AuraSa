@@ -1,16 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Aura Marketing Agency - Dark Theme Design System */
-/* Colors: Black, White, #cc2ba6 (Aura Pink) */
-
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
     /* Dark theme as default */
-    /* --background: 0 0% 4%; */
     --background: 0 0% 0%;
     --foreground: 0 0% 98%;
     
@@ -21,10 +17,9 @@
     --popover-foreground: 0 0% 98%;
     
     /* Aura Pink as primary accent */
-    /* --primary: 317 67% 49%;
-    --primary-foreground: 0 0% 100%; */
-    --primary: 0% 0% 100%;
-    --primary-foreground: 0% 0% 0%;
+ 
+    --primary: 314, 65%, 48%;
+    --primary-foreground: 0 0% 100%;
     
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;

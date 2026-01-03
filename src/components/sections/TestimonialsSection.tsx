@@ -135,7 +135,7 @@ const TestimonialsSection = () => {
 
                   {/* Author */}
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
