@@ -315,7 +315,7 @@ const resources = {
         quickLinks: 'روابط سريعة',
         terms: 'الشروط والأحكام',
         privacy: 'سياسة الخصوصية',
-        copyright: '© 2024 Aura Marketing. جميع الحقوق محفوظة.',
+        copyright: '© 2026 Aura Marketing. جميع الحقوق محفوظة.',
         location: 'جدة، المملكة العربية السعودية',
       },
       // Consultation Form
@@ -779,7 +779,7 @@ const resources = {
         quickLinks: 'Quick Links',
         terms: 'Terms & Conditions',
         privacy: 'Privacy Policy',
-        copyright: '© 2024 Aura Marketing. All Rights Reserved.',
+        copyright: '© 2026 Aura Marketing. All Rights Reserved.',
         location: 'Jeddah, Saudi Arabia',
       },
       // Consultation Form
