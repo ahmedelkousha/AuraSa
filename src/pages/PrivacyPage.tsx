@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Shield } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 const PrivacyPage = () => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
+ const navigate = useNavigate()
 
   const sections = [
     { titleKey: 'section1Title', contentKey: 'section1Content' },
@@ -24,13 +25,13 @@ const PrivacyPage = () => {
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Back Link */}
-          <Link
-            to="/"
+          <button
+            onClick={() => navigate(-1)}
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             {isRTL ? <ArrowRight className="w-5 h-5" /> : <ArrowLeft className="w-5 h-5" />}
-            <span>{isRTL ? 'العودة للرئيسية' : 'Back to Home'}</span>
-          </Link>
+            <span>{isRTL ? 'العودة للصفحة السابقة' : 'Back to Previous Page'}</span>
+          </button>
 
           {/* Header */}
           <motion.div

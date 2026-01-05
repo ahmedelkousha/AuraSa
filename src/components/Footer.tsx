@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown, MapPin, Phone, Mail, Instagram, Facebook, Youtube } from 'lucide-react';
+import {
+  ChevronDown,
+  MapPin,
+  Phone,
+  Mail,
+  Instagram,
+  Facebook,
+  Youtube,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import auraLogo from '@/assets/aura-logo.png';
@@ -11,6 +19,10 @@ import tiktok from '@/assets/icons/tiktok.png';
 /* =========================
    Footer Dropdown Component
 ========================= */
+type FooterItem =
+  | { label: string; type: 'hash'; hash: string }
+  | { label: string; type: 'route'; path: string };
+
 const FooterDropdown = ({
   title,
   items,
@@ -19,7 +31,7 @@ const FooterDropdown = ({
   isQuickLinks = false,
 }: {
   title: string;
-  items: { label: string; href: string }[];
+  items: FooterItem[];
   isOpen: boolean;
   onToggle: () => void;
   isQuickLinks?: boolean;
@@ -32,23 +44,40 @@ const FooterDropdown = ({
   const location = useLocation();
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
     const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleClick = (href: string) => {
-    if (isQuickLinks) {
-      if (location.pathname !== '/') {
-        navigate('/' + href);
-      } else {
-        const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: 'smooth' });
-      }
+  const handleQuickLinkClick = (item: FooterItem) => {
+    // 🔹 Route navigation (Portfolio)
+    if (item.type === 'route') {
+      navigate(item.path);
+      return;
     }
+
+    // 🔹 Jump links
+    const hash = item.hash;
+
+    if (location.pathname !== '/') {
+      navigate('/' + hash);
+      return;
+    }
+
+    const element = document.querySelector(hash);
+    if (!element) return;
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
+
+    requestAnimationFrame(() => {
+      const headerOffset = 100;
+      const y =
+        element.getBoundingClientRect().top +
+        window.scrollY -
+        headerOffset;
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
   };
 
   return (
@@ -67,7 +96,7 @@ const FooterDropdown = ({
       <AnimatePresence mode="wait">
         {(isOpen || isDesktop) && (
           <motion.div
-            key="dropdown-content"
+            key="dropdown"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -78,14 +107,14 @@ const FooterDropdown = ({
                 <li key={index}>
                   {isQuickLinks ? (
                     <button
-                      onClick={() => handleClick(item.href)}
+                      onClick={() => handleQuickLinkClick(item)}
                       className="text-muted-foreground hover:text-primary transition-colors text-sm text-start"
                     >
                       {item.label}
                     </button>
                   ) : (
                     <Link
-                      to={item.href}
+                      to={(item as any).path}
                       className="text-muted-foreground hover:text-primary transition-colors text-sm"
                     >
                       {item.label}
@@ -102,49 +131,56 @@ const FooterDropdown = ({
 };
 
 /* =========================
-          Footer
+            Footer
 ========================= */
 const Footer = () => {
   const { t } = useTranslation();
 
-  // 👇 Only ONE dropdown open at a time
+  // 🔹 Only ONE dropdown open
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const servicesItems = [
-    { label: t('footer.ecommerce'), href: '/services/ecommerce' },
-    { label: t('footer.adCampaigns'), href: '/services/campaigns' },
-    { label: t('footer.socialManagement'), href: '/services/social-media' },
-    { label: t('footer.motionVideo'), href: '/services/motion-graphics' },
+    { label: t('footer.ecommerce'), path: '/services/ecommerce' },
+    { label: t('footer.adCampaigns'), path: '/services/campaigns' },
+    { label: t('footer.socialManagement'), path: '/services/social-media' },
+    { label: t('footer.motionVideo'), path: '/services/motion-graphics' },
   ];
 
-  const pastWorkItems = [
-    { label: t('footer.portfolio'), href: '/portfolio' },
-    { label: t('footer.profile'), href: '/profile' },
+  const aboutAuraItems = [
+    { label: t('footer.profile'), path: '/profile' },
+    { label: t('footer.portfolio'), path: '/portfolio' },
   ];
 
   const blogItems = [
-    { label: t('footer.blogPost1'), href: '/success-story' },
-    { label: t('footer.blogPost2'), href: '/blog/ecommerce-guide' },
+    { label: t('footer.blogPost1'), path: '/success-story' },
+    { label: t('footer.blogPost2'), path: '/blog/ecommerce-guide' },
+    { label: t('footer.blogPost3'), path: '/blog/gulf-trend' },
+    { label: t('footer.blogPost4'), path: '/blog/commerce-future-2026' },
   ];
 
-  const quickLinks = [
-    { label: t('nav.home'), href: '#home' },
-    { label: t('nav.services'), href: '#services' },
-    { label: t('nav.portfolio'), href: '#portfolio' },
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.contact'), href: '#contact' },
+  // Same behavior as Header
+  const quickLinks: FooterItem[] = [
+    { label: t('nav.home'), type: 'hash', hash: '#home' },
+    { label: t('nav.services'), type: 'hash', hash: '#services' },
+    { label: t('nav.portfolio'), type: 'route', path: '/portfolio' }, // 👈 only route
+    { label: t('nav.about'), type: 'hash', hash: '#about' },
+    { label: t('nav.contact'), type: 'hash', hash: '#contact' },
   ];
 
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
-
-          {/* Brand Column */}
+          {/* BRAND */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center mb-6">
-              <img src={auraLogo} alt="Aura Marketing" loading="lazy"
-                decoding="async" className="h-12 w-auto" />
+              <img
+                src={auraLogo}
+                alt="Aura Marketing"
+                loading="lazy"
+                decoding="async"
+                className="h-12 w-auto"
+              />
             </Link>
 
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -166,33 +202,30 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* SOCIAL */}
             <div className="flex gap-4 mt-6">
               <a href="https://www.instagram.com/auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
                 <Instagram className="w-5 h-5 text-slate-300" />
               </a>
               <a href="https://x.com/auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <img className="w-5 h-5" src={twitter} alt="X" loading="lazy"
-                  decoding="async" />
+                <img className="w-5 h-5" src={twitter} alt="X" />
               </a>
               <a href="https://www.facebook.com/people/Aura-Marketing/61585938591898/" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
                 <Facebook className="w-5 h-5 text-slate-300" />
               </a>
               <a href="https://www.snapchat.com/@auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <img className="w-5 h-5" src={snapchat} alt="Snapchat" loading="lazy"
-                  decoding="async" />
+                <img className="w-5 h-5" src={snapchat} alt="Snapchat" />
               </a>
               <a href="https://www.youtube.com/@auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
                 <Youtube className="w-5 h-5 text-slate-300" />
               </a>
               <a href="https://www.tiktok.com/@auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <img className="w-4 h-5" src={tiktok} alt="TikTok" loading="lazy"
-                  decoding="async" />
+                <img className="w-4 h-5" src={tiktok} alt="TikTok" />
               </a>
             </div>
           </div>
 
-          {/* Dropdowns */}
+          {/* DROPDOWNS */}
           <FooterDropdown
             title={t('footer.quickLinks')}
             items={quickLinks}
@@ -205,7 +238,11 @@ const Footer = () => {
 
           <FooterDropdown
             title={t('footer.services')}
-            items={servicesItems}
+            items={servicesItems.map((i) => ({
+              label: i.label,
+              type: 'route',
+              path: i.path,
+            }))}
             isOpen={openDropdown === 'services'}
             onToggle={() =>
               setOpenDropdown(openDropdown === 'services' ? null : 'services')
@@ -213,17 +250,25 @@ const Footer = () => {
           />
 
           <FooterDropdown
-            title={t('footer.pastWork')}
-            items={pastWorkItems}
-            isOpen={openDropdown === 'pastWork'}
+            title={t('footer.aboutAura')}
+            items={aboutAuraItems.map((i) => ({
+              label: i.label,
+              type: 'route',
+              path: i.path,
+            }))}
+            isOpen={openDropdown === 'aboutAura'}
             onToggle={() =>
-              setOpenDropdown(openDropdown === 'pastWork' ? null : 'pastWork')
+              setOpenDropdown(openDropdown === 'aboutAura' ? null : 'aboutAura')
             }
           />
 
           <FooterDropdown
             title={t('footer.blog')}
-            items={blogItems}
+            items={blogItems.map((i) => ({
+              label: i.label,
+              type: 'route',
+              path: i.path,
+            }))}
             isOpen={openDropdown === 'blog'}
             onToggle={() =>
               setOpenDropdown(openDropdown === 'blog' ? null : 'blog')
@@ -231,7 +276,7 @@ const Footer = () => {
           />
         </div>
 
-        {/* Bottom Bar */}
+        {/* BOTTOM BAR */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col lg:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
             {t('footer.copyright')}

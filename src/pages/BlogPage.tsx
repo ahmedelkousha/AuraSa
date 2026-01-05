@@ -18,6 +18,18 @@ const blogData = {
     date: '2024-01-10',
     readTime: '12',
   },
+  'gulf-trend': {
+    titleAr: 'كيفية إنشاء متجر إلكتروني لزيادة مبيعاتك',
+    titleEn: 'How to Create an E-commerce Store to Increase Your Sales',
+    date: '2024-01-10',
+    readTime: '12',
+  },
+  'google-data': {
+    titleAr: 'كيفية إنشاء متجر إلكتروني لزيادة مبيعاتك',
+    titleEn: 'How to Create an E-commerce Store to Increase Your Sales',
+    date: '2024-01-10',
+    readTime: '12',
+  },
 };
 
 const BlogPage = () => {
@@ -36,9 +48,9 @@ const BlogPage = () => {
             <h1 className="text-4xl font-bold text-foreground mb-4">
               {isRTL ? 'المقال غير موجود' : 'Article Not Found'}
             </h1>
-            <Link to="/" className="text-primary hover:underline">
-              {isRTL ? 'العودة للرئيسية' : 'Back to Home'}
-            </Link>
+            <button onClick={() => navigate(-1)} className="text-primary hover:underline">
+              {isRTL ? 'العودة للصفحة السابقة' : 'Back to Previous Page'}
+            </button>
           </div>
         </main>
         <Footer />
@@ -58,7 +70,7 @@ const BlogPage = () => {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             {isRTL ? <ArrowRight className="w-5 h-5" /> : <ArrowLeft className="w-5 h-5" />}
-            <span>{isRTL ? 'العودة للرئيسية' : 'Back to Home'}</span>
+            <span>{isRTL ? 'العودة للصفحة السابقة' : 'Back to Previous Page'}</span>
           </button>
 
           {/* Article Header */}

@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Users, TrendingUp, Palette, Globe, Search, Target, Heart, BarChart3, Grid3X3, LineChart, Megaphone, MousePointer, RefreshCw, Code, Layout, ShoppingCart, Rocket, Cog, X, ZoomIn } from 'lucide-react';
@@ -104,6 +104,7 @@ const ServicePage = () => {
   const isRTL = i18n.language === 'ar';
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+ const navigate = useNavigate()
 
   const currentService = service ? serviceData[service as keyof typeof serviceData] : null;
   const isSocialMedia = service === 'social-media';
@@ -135,9 +136,9 @@ const ServicePage = () => {
             <h1 className="text-4xl font-bold text-foreground mb-4">
               {isRTL ? 'الخدمة غير موجودة' : 'Service Not Found'}
             </h1>
-            <Link to="/" className="text-primary hover:underline">
-              {isRTL ? 'العودة للرئيسية' : 'Back to Home'}
-            </Link>
+            <button onClick={() => navigate(-1)} className="text-primary hover:underline">
+              {isRTL ? 'العودة للصفحة السابقة' : 'Back to Previous Page'}
+            </button>
           </div>
         </main>
         <Footer />
@@ -166,14 +167,13 @@ const ServicePage = () => {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           {/* Back Link */}
-          <Link
-            to="/"
+          <button
+            onClick={() => navigate(-1)}
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             {isRTL ? <ArrowRight className="w-5 h-5" /> : <ArrowLeft className="w-5 h-5" />}
-            <span>{isRTL ? 'العودة للرئيسية' : 'Back to Home'}</span>
-          </Link>
-
+            <span>{isRTL ? 'العودة للصفحة السابقة' : 'Back to Previous Page'}</span>
+          </button>
           {/* Hero Section - Different layout for Social Media and Campaigns */}
           {(heroImage) ? (
             <motion.div

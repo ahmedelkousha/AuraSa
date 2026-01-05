@@ -104,7 +104,7 @@ const SuccessStoryPage = () => {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             {isRTL ? <ArrowRight className="w-5 h-5" /> : <ArrowLeft className="w-5 h-5" />}
-            <span>{t('successStory.backToHome')}</span>
+            <span>{t('successStory.backToPreviousPage')}</span>
           </Link>
 
           <img src={secretImage} alt="Secret Image" loading="lazy"
