@@ -14,8 +14,12 @@ const ScrollToTop = () => {
         }, 100);
       }
     } else {
-      // Otherwise scroll to top
-      window.scrollTo(0, 0);
+       // Otherwise scroll to top - use multiple methods for cross-browser/device compatibility
+      setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }, 0);
     }
   }, [pathname, hash]);
 

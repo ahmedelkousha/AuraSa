@@ -53,19 +53,20 @@ const ProfilePage = () => {
             className="mb-16 text-center"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              {isRTL ? 'بروفايل أورا' : 'Aura Profile'}
+              {isRTL ? 'بروفايل اورا' : 'Aura Profile'}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               {isRTL
-                ? 'تعرف على وكالة أورا للتسويق الرقمي وما نقدمه من خدمات احترافية'
+                ? 'تعرف على وكالة اورا للتسويق الرقمي وما نقدمه من خدمات احترافية'
                 : 'Learn about Aura Digital Marketing Agency and our professional services'}
             </p>
             <a
-              href="#"
+              href="https://drive.google.com/file/d/1KvnS0X6d8QUml0TmOs3jrdnud-xidL-2/view?usp=drivesdk"
               className="inline-flex items-center gap-2 btn-aura rounded-full text-primary-foreground"
+              target="_blank" rel="noopener noreferrer"
             >
-              <Download className="w-5 h-5" />
-              <span>{isRTL ? 'تحميل البروفايل' : 'Download Profile'}</span>
+              <ArrowRight className={`${!isRTL ? 'rotate-180' : ''} w-5 h-5`} />
+              <span>{isRTL ? 'تعرف علينا' : 'Get to know us'}</span>
             </a>
           </motion.div>
 
@@ -93,18 +94,18 @@ const ProfilePage = () => {
             className="bg-card border border-border rounded-2xl p-8 lg:p-12"
           >
             <h2 className="text-2xl font-bold text-foreground mb-6">
-              {isRTL ? 'عن أورا' : 'About Aura'}
+              {isRTL ? 'عن اورا' : 'About Aura'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isRTL
                 ? 'نحن ندرك أن لكل مشروع روح خاصة تميزه عن غيره، ومهمتنا هي تسليط الضوء على علامتك وجعلها مرئية للجمهور المستهدف. من خلال فريق من الخبراء في تحليل البيانات، صناعة المحتوى، وإدارة الحملات الإعلانية، نلتزم بمنهجية عمل صارمة تبدأ من الدراسة العميقة وتنتهي بتحقيق عوائد ملموسة على الاستثمار.'
                 : 'We realize that each project has a unique spirit that distinguishes it from others, and our mission is to spotlight your brand and make it visible to the target audience. Through a team of experts in data analysis, content creation, and advertising campaign management, we commit to a strict work methodology that starts from deep study and ends with achieving tangible returns on investment.'}
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            {/* <p className="text-muted-foreground leading-relaxed">
               {isRTL
                 ? 'سيتم إضافة محتوى تفصيلي للبروفايل قريباً.'
                 : 'Detailed profile content will be added soon.'}
-            </p>
+            </p> */}
           </motion.div>
         </div>
       </main>

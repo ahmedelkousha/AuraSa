@@ -15,6 +15,11 @@ import masroorLogo from '@/assets/partners/masroor.png';
 import tafaseelLogo from '@/assets/partners/tafaseel.png';
 import nassayemLogo from '@/assets/partners/nassayem.png';
 import angoliLogo from '@/assets/partners/angoli.png';
+import shaheen from '@/assets/partners/shaheen.png';
+import snow from '@/assets/partners/snow.png';
+import oree from '@/assets/partners/oree.png';
+import dirhamee from '@/assets/partners/dirahme.png';
+import trans from '@/assets/partners/trans.png';
 
 const PartnersSection = () => {
   const { t, i18n } = useTranslation();
@@ -31,6 +36,11 @@ const PartnersSection = () => {
     { name: 'Tafaseel', logo: tafaseelLogo },
     { name: 'Nassayem Salalah', logo: nassayemLogo },
     { name: 'Angoli Shop', logo: angoliLogo },
+    { name: 'Shaheen', logo: shaheen },
+    { name: 'Oree', logo: oree },
+    { name: 'Trans', logo: trans },
+    { name: 'Dirhamee', logo: dirhamee },
+    { name: 'Snow', logo: snow },
   ];
 
   return (
@@ -55,7 +65,7 @@ const PartnersSection = () => {
           slidesPerView={2}
           loop={true}
           autoplay={{
-            delay: 2000,
+            delay: 1000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}

@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Share2 } from 'lucide-react';
@@ -46,19 +46,20 @@ const BlogPage = () => {
     );
   }
 
+  const navigate = useNavigate()
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Back Link */}
-          <Link
-            to="/"
+          <button
+            onClick={()=>navigate(-1)}
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             {isRTL ? <ArrowRight className="w-5 h-5" /> : <ArrowLeft className="w-5 h-5" />}
             <span>{isRTL ? 'العودة للرئيسية' : 'Back to Home'}</span>
-          </Link>
+          </button>
 
           {/* Article Header */}
           <motion.article

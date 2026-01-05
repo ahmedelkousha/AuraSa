@@ -23,11 +23,11 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
         gsap.fromTo(
           textRef.current?.querySelectorAll('.animate-item'),
           { y: 50, opacity: 0 },
-          { 
-            y: 0, 
-            opacity: 1, 
-            stagger: 0.2, 
-            duration: 0.8, 
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.2,
+            duration: 0.8,
             ease: 'power3.out',
             delay: 0.3
           }
@@ -63,14 +63,14 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
         {/* Overlay for better text readability */}
         {/* <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 lg:from-background/80 lg:via-background/50 lg:to-transparent" /> */}
       </div>
-      
+
       {/* Glowing orbs */}
       <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-48 md:w-80 h-48 md:h-80 bg-primary/10 rounded-full blur-[100px] animate-pulse animation-delay-400" />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 pt-20 text-center">
-        <div ref={textRef} className={`max-w-2xl ${isRTL ? 'mr-0 ml-auto sm:text-right' : 'ml-0 mr-auto text-left'}`}>
+        <div ref={textRef} className={`max-w-2xl ${isRTL ? 'mr-0 ml-auto sm:text-right' : 'mr-0 ml-auto text-left'}`}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,22 +82,22 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             </span> */}
           </motion.div>
 
-          <motion.div initial={{opacity:0.4}}
-            animate={{opacity:1}}
-            transition={{duration:0.8, repeat: Infinity,repeatType:"reverse"}}>
-            <h1 className="heroContentHeading animate-item text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-6">
+          <motion.div initial={{ opacity: 0.4 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}>
+            <h1 className={`heroContentHeading animate-item text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight ${isRTL ? 'mb-6' : 'mb-2'}`}>
               <span className="">{t('hero.title')}</span>
             </h1>
-</motion.div>
+          </motion.div>
 
-           <p className="hidden sm:block heroContentParagraph animate-item text-lg md:text-xl text-foreground/90 mb-4 leading-relaxed">
-              {t('hero.subtitle1') + ' ' + t('hero.subtitle2')}
-            </p>
+          <p className="hidden sm:block heroContentParagraph animate-item text-lg md:text-xl text-foreground/90 mb-4 leading-relaxed">
+            {t('hero.subtitle1') + ' ' + t('hero.subtitle2')}
+          </p>
 
-           <div className="sm:hidden heroContentParagraph animate-item text-lg md:text-xl text-foreground/90 mb-4 leading-relaxed">
-           <p>{t('hero.subtitle1')}</p>
-           <p>{t('hero.subtitle2')}</p>
-            </div>
+          <div className="sm:hidden heroContentParagraph animate-item text-lg md:text-xl text-foreground/90 mb-4 leading-relaxed">
+            <p>{t('hero.subtitle1')}</p>
+            <p>{t('hero.subtitle2')}</p>
+          </div>
 
           <p className="animate-item text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 sm:block hidden">
             {t('hero.description')}

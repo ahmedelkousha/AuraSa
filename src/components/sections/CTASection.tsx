@@ -9,7 +9,7 @@ interface CTASectionProps {
 const CTASection = ({ onOpenModal }: CTASectionProps) => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
-  const whatsappLink = "https://wa.me/966554444444";
+  const whatsappLink = "https://wa.me/966539959221";
 
   return (
     <section className="py-20 lg:py-32 relative overflow-hidden">

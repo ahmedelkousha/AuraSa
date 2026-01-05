@@ -18,6 +18,7 @@ import PrivacyPage from "./pages/PrivacyPage";
 import LanguageProvider from "./components/LanguageProvider";
 import ScrollToTop from "./components/ScrollToTop";
 // import Preloader from "./components/Preloader";
+import ScrollToTopButton from './components/ScrollToTopButton';
 import '@/i18n';
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
+            <ScrollToTopButton />
             <FloatingWhatsApp />
             <Routes>
               <Route path="/" element={<Index />} />

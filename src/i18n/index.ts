@@ -59,7 +59,7 @@ const resources = {
         metric2Label: 'زيادة في المبيعات',
         metric3Label: 'أشهر فقط',
         metric4Label: 'وصول للعملاء',
-        mainTitle: 'من 40 ألف إلى 316,706 ريال خلال شهر واحد .. ما الذي تغير فعلياً في استراتيجية هذا المتجر؟',
+        mainTitle: 'من 40 ألف إلى 316 الف ريال خلال شهر واحد .. ما الذي تغير فعلياً في استراتيجية هذا المتجر؟',
         mainSubtitle: 'نأخذكم اليوم إلى كواليس الإدارة التسويقية، لنكشف لكم كيف أعدنا هيكلة حملات جوجل، ميتا، تيك توك، وسناب شات لتحقيق نمو بنسبة 690%.',
         caseStudy: 'دراسة حالة',
         aboutClient: 'نبذة عن العميل',
@@ -295,7 +295,7 @@ const resources = {
       // Mission
       mission: {
         title: 'مهمة اورا',
-        desc: 'نحن ندرك أن لكل مشروع روح خاصة تميزه عن غيره، ومهمتنا هي تسليط الضوء على علامتك وجعلها مرئية للجمهور المستهدف. من خلال فريق من الخبراء في تحليل البيانات، صناعة المحتوى، وإدارة الحملات الإعلانية، نلتزم بمنهجية عمل صارمة تبدأ من الدراسة العميقة وتنتهي بتحقيق عوائد ملموسة على الاستثمار.',
+        desc: 'متخصصون في تقديم خدمات تسويق رقمي متكاملة متخصصة في تعزيز الحضور من خلال استراتيجيات متكاملة تبني وجوداً قوياً ومؤثراً، وتضمن أن يبقى انطباع علامتك راسخاً في ذهن الجمهور.',
       },
       // Footer
       footer: {
@@ -308,7 +308,7 @@ const resources = {
         portfolio: 'معرض الأعمال',
         profile: 'بروفايل Aura',
         blog: 'مدونة Aura',
-        blogPost1: 'كواليس تحقيق 360 ألف ريال',
+        blogPost1: 'كواليس تحقيق 360 ألف ريال خلال شهر واحد',
         blogPost2: 'كيفية إنشاء متجر إلكتروني لزيادة مبيعاتك',
         quickLinks: 'روابط سريعة',
         terms: 'الشروط والأحكام',
@@ -343,9 +343,9 @@ const resources = {
       },
       // Hero
       hero: {
-        title: 'Here, we create the scene',
-        subtitle1: 'We design your store, craft your identity, manage your platforms, and lead your advertising campaigns',
-        subtitle2: '',
+        title: 'We create the scene',
+        subtitle1: 'We design your store, craft your identity,',
+        subtitle2: 'manage your platforms, and lead your advertising campaigns',
         description: 'Everything you need to grow your business in one place',
         cta: 'Free Consultation',
         reachUs: 'Reach Us',
@@ -383,7 +383,7 @@ const resources = {
         metric2Label: 'Sales Increase',
         metric3Label: 'Months Only',
         metric4Label: 'Customer Reach',
-        mainTitle: 'From 40K to 316,706 SAR Monthly... What Actually Changed in This Store\'s Strategy?',
+        mainTitle: 'From 40K to 316K SAR Monthly... What Actually Changed in This Store\'s Strategy?',
         mainSubtitle: 'Today we take you behind the scenes of marketing management, revealing how we restructured Google, Meta, TikTok, and Snapchat campaigns to achieve 690% growth.',
         caseStudy: 'Case Study',
         aboutClient: 'About the Client',
@@ -619,7 +619,7 @@ const resources = {
       // Mission
       mission: {
         title: 'Aura Mission',
-        desc: 'We realize that each project has a unique spirit that distinguishes it from others, and our mission is to spotlight your brand and make it visible to the target audience. Through a team of experts in data analysis, content creation, and advertising campaign management, we commit to a strict work methodology that starts from deep study and ends with achieving tangible returns on investment.',
+        desc: 'Specialists in providing comprehensive digital marketing services, focusing on enhancing presence through integrated strategies that build a strong and influential presence, ensuring that your brand leaves a lasting impression on the audience.',
       },
       // Footer
       footer: {

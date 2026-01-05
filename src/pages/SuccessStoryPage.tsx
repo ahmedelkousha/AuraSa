@@ -9,6 +9,7 @@ import tiktokCampaigns from '@/assets/case-study/tiktok-campaigns.png';
 import snapchatCampaigns from '@/assets/case-study/snapchat-campaigns.png';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import secretImage from '@/assets/backstage/backstage.png'
 
 // Platform logos as simple styled badges
 const PlatformBadge = ({ name }: { name: string }) => {
@@ -106,16 +107,18 @@ const campaignImages = [
             <span>{t('successStory.backToHome')}</span>
           </Link>
 
+          <img src={secretImage} alt="Secret Image" />
+          
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium mb-6">
+            {/* <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium mb-6">
               {t('successStory.caseStudy')}
-            </span>
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 leading-relaxed">
+            </span> */}
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-6 leading-relaxed">
               {t('successStory.mainTitle')}
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
