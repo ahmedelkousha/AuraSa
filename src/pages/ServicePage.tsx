@@ -14,25 +14,25 @@ import PortfolioCarousel from '@/components/PortfolioCarousel';
 import VideoCarousel from '@/components/VideoCarousel';
 
 // Social Media Hero and Gallery Images
-import socialHero from '@/assets/smm-service/socialHero.png';
-import smm1 from '@/assets/smm-service/smm1.png';
-import smm2 from '@/assets/smm-service/smm2.png';
-import smm3 from '@/assets/smm-service/smm3.png';
-import smm4 from '@/assets/smm-service/smm4.png';
-import smm5 from '@/assets/smm-service/smm5.png';
+import socialHero from '@/assets/smm-service/socialHero.webp';
+import smm1 from '@/assets/smm-service/smm1.webp';
+import smm2 from '@/assets/smm-service/smm2.webp';
+import smm3 from '@/assets/smm-service/smm3.webp';
+import smm4 from '@/assets/smm-service/smm4.webp';
+import smm5 from '@/assets/smm-service/smm5.webp';
 
 // Paid Ads Hero and Gallery Images
-import adsHero from '@/assets/ads-service/adsHero.png';
-import ads1 from '@/assets/ads-service/ads1.png';
-import ads2 from '@/assets/ads-service/ads2.png';
-import ads3 from '@/assets/ads-service/ads3.png';
-import ads4 from '@/assets/ads-service/ads4.png';
+import adsHero from '@/assets/ads-service/adsHero.webp';
+import ads1 from '@/assets/ads-service/ads1.webp';
+import ads2 from '@/assets/ads-service/ads2.webp';
+import ads3 from '@/assets/ads-service/ads3.webp';
+import ads4 from '@/assets/ads-service/ads4.webp';
 
 // Motion Graphics Hero and Gallery Images
-import motionHero from '@/assets/motion-graphics/motionHero.png';
+import motionHero from '@/assets/motion-graphics/motionHero.webp';
 
 // Motion Graphics Hero and Gallery Images
-import ecommerceHero from '@/assets/ecommerce/ecommerceHero.png';
+import ecommerceHero from '@/assets/ecommerce/ecommerceHero.webp';
 
 
 const socialMediaGallery = [
@@ -104,7 +104,7 @@ const ServicePage = () => {
   const isRTL = i18n.language === 'ar';
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
- const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const currentService = service ? serviceData[service as keyof typeof serviceData] : null;
   const isSocialMedia = service === 'social-media';

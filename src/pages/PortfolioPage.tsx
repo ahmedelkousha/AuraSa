@@ -13,15 +13,15 @@ import Footer from '@/components/Footer';
 import VideoCarousel from '@/components/VideoCarousel';
 
 // Import all gallery images
-import smm1 from '@/assets/smm-service/smm1.png';
-import smm2 from '@/assets/smm-service/smm2.png';
-import smm3 from '@/assets/smm-service/smm3.png';
-import smm4 from '@/assets/smm-service/smm4.png';
-import smm5 from '@/assets/smm-service/smm5.png';
-import ads1 from '@/assets/ads-service/ads1.png';
-import ads2 from '@/assets/ads-service/ads2.png';
-import ads3 from '@/assets/ads-service/ads3.png';
-import ads4 from '@/assets/ads-service/ads4.png';
+import smm1 from '@/assets/smm-service/smm1.webp';
+import smm2 from '@/assets/smm-service/smm2.webp';
+import smm3 from '@/assets/smm-service/smm3.webp';
+import smm4 from '@/assets/smm-service/smm4.webp';
+import smm5 from '@/assets/smm-service/smm5.webp';
+import ads1 from '@/assets/ads-service/ads1.webp';
+import ads2 from '@/assets/ads-service/ads2.webp';
+import ads3 from '@/assets/ads-service/ads3.webp';
+import ads4 from '@/assets/ads-service/ads4.webp';
 
 // Gallery data
 const socialMediaGallery = [
@@ -51,7 +51,7 @@ const PortfolioPage = () => {
   const isRTL = i18n.language === 'ar';
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
- const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const openLightbox = (image: string) => {
     setLightboxImage(image);

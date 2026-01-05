@@ -5,21 +5,21 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
 // Import partner logos
-import tayaranLogo from '@/assets/partners/tayaran.png';
-import barotoysLogo from '@/assets/partners/barotoys.png';
-import jaziraLogo from '@/assets/partners/jazira.png';
-import greenLogo from '@/assets/partners/green.png';
-import bcacquireLogo from '@/assets/partners/bcacquire.png';
-import amkitLogo from '@/assets/partners/amkit.png';
-import masroorLogo from '@/assets/partners/masroor.png';
-import tafaseelLogo from '@/assets/partners/tafaseel.png';
-import nassayemLogo from '@/assets/partners/nassayem.png';
-import angoliLogo from '@/assets/partners/angoli.png';
-import shaheen from '@/assets/partners/shaheen.png';
-import snow from '@/assets/partners/snow.png';
-import oree from '@/assets/partners/oree.png';
-import dirhamee from '@/assets/partners/dirahme.png';
-import trans from '@/assets/partners/trans.png';
+import tayaranLogo from '@/assets/partners/tayaran.webp';
+import barotoysLogo from '@/assets/partners/barotoys.webp';
+import jaziraLogo from '@/assets/partners/jazira.webp';
+import greenLogo from '@/assets/partners/green.webp';
+import bcacquireLogo from '@/assets/partners/bcacquire.webp';
+import amkitLogo from '@/assets/partners/amkit.webp';
+import masroorLogo from '@/assets/partners/masroor.webp';
+import tafaseelLogo from '@/assets/partners/tafaseel.webp';
+import nassayemLogo from '@/assets/partners/nassayem.webp';
+import angoliLogo from '@/assets/partners/angoli.webp';
+import shaheen from '@/assets/partners/shaheen.webp';
+import snow from '@/assets/partners/snow.webp';
+import oree from '@/assets/partners/oree.webp';
+import dirhamee from '@/assets/partners/dirahme.webp';
+import trans from '@/assets/partners/trans.webp';
 
 const PartnersSection = () => {
   const { t, i18n } = useTranslation();

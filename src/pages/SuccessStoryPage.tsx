@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, TrendingUp, Target, Users, DollarSign, AlertCircle, Lightbulb, CheckCircle2, BarChart3, FileText, X, ZoomIn } from 'lucide-react';
-import googleCampaigns from '@/assets/case-study/google-campaigns.png';
-import metaCampaigns from '@/assets/case-study/meta-campains.png';
-import tiktokCampaigns from '@/assets/case-study/tiktok-campaigns.png';
-import snapchatCampaigns from '@/assets/case-study/snapchat-campaigns.png';
+import googleCampaigns from '@/assets/case-study/google-campaigns.webp';
+import metaCampaigns from '@/assets/case-study/meta-campains.webp';
+import tiktokCampaigns from '@/assets/case-study/tiktok-campaigns.webp';
+import snapchatCampaigns from '@/assets/case-study/snapchat-campaigns.webp';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import secretImage from '@/assets/backstage/backstage.png'
+import secretImage from '@/assets/backstage/backstage.webp'
 
 // Platform logos as simple styled badges
 const PlatformBadge = ({ name }: { name: string }) => {

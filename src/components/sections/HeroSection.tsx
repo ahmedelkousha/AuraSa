@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ArrowLeft, ArrowRight, MessageCircle, Phone } from 'lucide-react';
-import heroDesktop from '@/assets/hero-desktop.png';
-import heroMobile from '@/assets/hero-mobile.png';
+import heroDesktop from '@/assets/hero-desktop.webp';
+import heroMobile from '@/assets/hero-mobile.webp';
 import './HeroSection.css'
 
 interface HeroSectionProps {
