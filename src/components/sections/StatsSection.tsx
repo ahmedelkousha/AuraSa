@@ -101,7 +101,7 @@ const StatsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="py-2 md:py-20 sm:py-20 lg:py-32 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
 
@@ -112,7 +112,7 @@ const StatsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-normal">
             {t('stats.title')}
           </h2>
         </motion.div>

@@ -4,6 +4,8 @@ import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import auraLogo from '@/assets/aura-logo.png';
+import { it } from 'node:test';
+import { Item } from '@radix-ui/react-accordion';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -37,19 +39,33 @@ const Header = () => {
   const whatsappLink = "https://wa.me/966539959221?text=Hello%20Aura%20Marketing";
 
   const handleNavClick = (hash: string) => {
-    setIsMobileMenuOpen(false);
-    
-    // If on homepage, smooth scroll
-    if (location.pathname === '/') {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // Navigate to homepage with hash
-      navigate('/' + hash);
-    }
-  };
+  setIsMobileMenuOpen(false);
+
+  if (location.pathname !== '/') {
+    navigate('/' + hash);
+    return;
+  }
+
+  const element = document.querySelector(hash);
+  if (!element) return;
+
+  // 🔥 FORCE scroll reset
+  window.scrollTo({ top: 0, behavior: 'auto' });
+
+  requestAnimationFrame(() => {
+    const headerOffset = 100;
+    const y =
+      element.getBoundingClientRect().top +
+      window.scrollY -
+      headerOffset;
+
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth',
+    });
+  });
+};
+
 
   return (
     <header
@@ -81,7 +97,7 @@ const Header = () => {
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-foreground/80  md:hover:text-primary lg:hover:text-primary transition-colors"
           >
             <Globe className="w-5 h-5" />
             <span className="text-sm font-medium">

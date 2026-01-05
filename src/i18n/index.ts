@@ -1,4 +1,5 @@
 import i18n from 'i18next';
+import { Subtitles } from 'lucide-react';
 import { title } from 'process';
 import { initReactI18next } from 'react-i18next';
 
@@ -19,7 +20,8 @@ const resources = {
       // Hero
       hero: {
         title: 'حيث يبدأ بريق علامتك',
-        subtitle: 'نصمم متجرك، نصنع هويتك، ندير منصاتك، ونقود حملاتك الإعلانية ونتائج البحث',
+        subtitle1: 'نصمم متجرك، نصنع هويتك، ندير منصاتك،',
+        subtitle2: 'ونقود حملاتك الإعلانية ونتائج البحث',
         description: 'كل ما تحتاجه لنمو أعمالك في مكان واحد',
         cta: 'استشارة مجانية',
         reachUs: 'تواصل معنا',
@@ -43,9 +45,9 @@ const resources = {
       },
       // Secret Section
       secret: {
-        topTitle:'خلف الكواليس',
-        title1:'كيف حققنا',
-         titleNum: '316',
+        topTitle: 'خلف الكواليس',
+        title1: 'كيف حققنا',
+        titleNum: '316',
         title2: 'ألـف ريال مبيعات في شهر واحد ؟',
         cta: 'اكتشف السر الآن',
       },
@@ -88,7 +90,7 @@ const resources = {
         result4: 'تحقيق نمو ملحوظ في عدد الطلبات واستقرار في المبيعات اليومية.',
         result5: 'تحسين تكلفة الشراء مقارنة بالوضع السابق.',
         result6: 'نجاح الحملات في التوسع (Scaling) مع الحفاظ على ربحية جيدة.',
-         conclusion: 'الخلاصة',
+        conclusion: 'الخلاصة',
         conclusionText: 'من خلال إدارة الحملات الإعلانية على منصات ميتا، جوجل، تيك توك، وسناب شات، تم تحويل متجر يعاني من قلة المبيعات إلى متجر يحقق نموًا واضحًا ومبيعات مستقرة داخل السوق السعودي.',
         conclusionText2: 'الاعتماد على استراتيجية واضحة، وتحسين مستمر للحملات، واختيار المنصات المناسبة، ساهم في تحقيق أكثر من 316 ألف ريال مبيعات بعائد إعلاني قوي تجاوز 4.8 ROAS.',
         wantResults: 'هل أنت مستعد لاتخاذ الخطوة التالية؟',
@@ -341,8 +343,9 @@ const resources = {
       },
       // Hero
       hero: {
-        title: 'Where Your Brand Shines',
-        subtitle: 'We design your store, craft your identity, manage your platforms, and lead your advertising campaigns',
+        title: 'Here, we create the scene',
+        subtitle1: 'We design your store, craft your identity, manage your platforms, and lead your advertising campaigns',
+        subtitle2: '',
         description: 'Everything you need to grow your business in one place',
         cta: 'Free Consultation',
         reachUs: 'Reach Us',
@@ -366,9 +369,9 @@ const resources = {
       },
       // Secret Section
       secret: {
-        topTitle:'Backstage',
-        title1:'How we achieved',
-        titleNum:'316',
+        topTitle: 'Backstage',
+        title1: 'How we achieved',
+        titleNum: '316',
         title2: 'thousands riyals sales in one month',
         cta: 'Discover the Secret Now',
       },
@@ -411,7 +414,7 @@ const resources = {
         result4: 'Notable growth in order numbers and stability in daily sales.',
         result5: 'Improved cost per purchase compared to the previous situation.',
         result6: 'Successful campaign scaling while maintaining good profitability.',
-          conclusion: 'Conclusion',
+        conclusion: 'Conclusion',
         conclusionText: 'Through managing advertising campaigns on Meta, Google, TikTok, and Snapchat platforms, we transformed a store struggling with low sales into one achieving clear growth and stable sales within the Saudi market.',
         conclusionText2: 'Relying on a clear strategy, continuous campaign optimization, and choosing the right platforms contributed to achieving over 316,000 SAR in sales with a strong advertising return exceeding 4.8 ROAS.',
         wantResults: 'Ready to Take the Next Step?',
