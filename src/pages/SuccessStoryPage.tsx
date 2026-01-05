@@ -19,7 +19,7 @@ const PlatformBadge = ({ name }: { name: string }) => {
     'Google': 'bg-red-500',
     'Snapchat': 'bg-yellow-400 text-black',
   };
-  
+
   return (
     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white ${colors[name] || 'bg-primary'}`}>
       {name}
@@ -30,7 +30,7 @@ const PlatformBadge = ({ name }: { name: string }) => {
 const SuccessStoryPage = () => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
-    const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
 
   const metrics = [
@@ -48,13 +48,13 @@ const SuccessStoryPage = () => {
     },
     {
       icon: Target,
-        value: '4.8+',
+      value: '4.8+',
       label: 'ROAS',
       color: 'from-purple-500 to-pink-500',
     },
     {
       icon: Users,
-          value: '65K',
+      value: '65K',
       label: t('successStory.result2').split(':')[0],
       color: 'from-orange-500 to-red-500',
     },
@@ -86,7 +86,7 @@ const SuccessStoryPage = () => {
     t('successStory.result6'),
   ];
 
-const campaignImages = [
+  const campaignImages = [
     { src: googleCampaigns, alt: 'Google Ads Campaigns', platform: 'Google' },
     { src: metaCampaigns, alt: 'Meta Ads Campaigns', platform: 'Meta' },
     { src: tiktokCampaigns, alt: 'TikTok Ads Campaigns', platform: 'TikTok' },
@@ -107,8 +107,9 @@ const campaignImages = [
             <span>{t('successStory.backToHome')}</span>
           </Link>
 
-          <img src={secretImage} alt="Secret Image" />
-          
+          <img src={secretImage} alt="Secret Image" loading="lazy"
+            decoding="async" />
+
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -300,15 +301,15 @@ const campaignImages = [
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {campaignImages.map((image, index) => (
-                   <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="relative group cursor-pointer"
                   onClick={() => setLightboxImage(image.src)}
                 >
                   <div className="absolute top-3 right-3 z-10">
                     <PlatformBadge name={image.platform} />
                   </div>
-                   {/* Click to zoom indicator */}
+                  {/* Click to zoom indicator */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 rounded-xl flex items-center justify-center z-[5]">
                     <div className="opacity-100 transition-opacity duration-300 bg-black rounded-full p-3 shadow-lg">
                       <ZoomIn className="w-6 h-6 text-primary" />
@@ -317,7 +318,9 @@ const campaignImages = [
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full rounded-xl border border-border shadow-lg transition-shadow duration-300"                  />
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full rounded-xl border border-border shadow-lg transition-shadow duration-300" />
                 </div>
               ))}
             </div>
@@ -392,11 +395,13 @@ const campaignImages = [
               <X className="w-6 h-6 text-white" />
             </button>
             <motion.img
-                initial={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               src={lightboxImage}
               alt="Fullscreen view"
+              loading="lazy"
+              decoding="async"
               className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />

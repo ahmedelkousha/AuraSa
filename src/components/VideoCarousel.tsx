@@ -133,6 +133,7 @@ const VideoCarousel = ({ items, title }: VideoCarouselProps) => {
                     src={thumbnailUrls[0]}
                     alt={item.title}
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       const img = e.currentTarget as HTMLImageElement;
                       const currentIndex = thumbnailUrls.indexOf(img.src);

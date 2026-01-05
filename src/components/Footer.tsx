@@ -59,9 +59,8 @@ const FooterDropdown = ({
       >
         <span className="font-semibold text-foreground">{title}</span>
         <ChevronDown
-          className={`w-5 h-5 lg:hidden transition-transform text-muted-foreground ${
-            isOpen ? 'rotate-180' : ''
-          }`}
+          className={`w-5 h-5 lg:hidden transition-transform text-muted-foreground ${isOpen ? 'rotate-180' : ''
+            }`}
         />
       </button>
 
@@ -144,7 +143,8 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center mb-6">
-              <img src={auraLogo} alt="Aura Marketing" className="h-12 w-auto" />
+              <img src={auraLogo} alt="Aura Marketing" loading="lazy"
+                decoding="async" className="h-12 w-auto" />
             </Link>
 
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -172,19 +172,22 @@ const Footer = () => {
                 <Instagram className="w-5 h-5 text-slate-300" />
               </a>
               <a href="https://x.com/auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <img className="w-5 h-5" src={twitter} alt="X" />
+                <img className="w-5 h-5" src={twitter} alt="X" loading="lazy"
+                  decoding="async" />
               </a>
               <a href="https://www.facebook.com/people/Aura-Marketing/61585938591898/" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
                 <Facebook className="w-5 h-5 text-slate-300" />
               </a>
               <a href="https://www.snapchat.com/@auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <img className="w-5 h-5" src={snapchat} alt="Snapchat" />
+                <img className="w-5 h-5" src={snapchat} alt="Snapchat" loading="lazy"
+                  decoding="async" />
               </a>
               <a href="https://www.youtube.com/@auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
                 <Youtube className="w-5 h-5 text-slate-300" />
               </a>
               <a href="https://www.tiktok.com/@auramarketingsa" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
-                <img className="w-4 h-5" src={tiktok} alt="TikTok" />
+                <img className="w-4 h-5" src={tiktok} alt="TikTok" loading="lazy"
+                  decoding="async" />
               </a>
             </div>
           </div>

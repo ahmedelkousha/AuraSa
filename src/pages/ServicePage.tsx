@@ -188,6 +188,8 @@ const ServicePage = () => {
                   <motion.img
                     src={heroImage}
                     alt={t(`servicePage.${translationKey}.heroTitle`)}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto object-contain"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -314,6 +316,8 @@ const ServicePage = () => {
                       <img
                         src={item.image}
                         alt={item.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
@@ -429,6 +433,8 @@ const ServicePage = () => {
               <img
                 src={lightboxImage}
                 alt="Fullscreen view"
+                loading="lazy"
+                decoding="async"
                 className="max-w-full max-h-full object-contain"
                 draggable={false}
               />

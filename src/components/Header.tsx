@@ -39,44 +39,44 @@ const Header = () => {
   const whatsappLink = "https://wa.me/966539959221?text=Hello%20Aura%20Marketing";
 
   const handleNavClick = (hash: string) => {
-  setIsMobileMenuOpen(false);
+    setIsMobileMenuOpen(false);
 
-  if (location.pathname !== '/') {
-    navigate('/' + hash);
-    return;
-  }
+    if (location.pathname !== '/') {
+      navigate('/' + hash);
+      return;
+    }
 
-  const element = document.querySelector(hash);
-  if (!element) return;
+    const element = document.querySelector(hash);
+    if (!element) return;
 
-  // 🔥 FORCE scroll reset
-  window.scrollTo({ top: 0, behavior: 'auto' });
+    // 🔥 FORCE scroll reset
+    window.scrollTo({ top: 0, behavior: 'auto' });
 
-  requestAnimationFrame(() => {
-    const headerOffset = 100;
-    const y =
-      element.getBoundingClientRect().top +
-      window.scrollY -
-      headerOffset;
+    requestAnimationFrame(() => {
+      const headerOffset = 100;
+      const y =
+        element.getBoundingClientRect().top +
+        window.scrollY -
+        headerOffset;
 
-    window.scrollTo({
-      top: y,
-      behavior: 'smooth',
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      });
     });
-  });
-};
+  };
 
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass py-3' : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'bg-transparent py-5'
+        }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src={auraLogo} alt="Aura Marketing" className="h-10 w-auto" />
+          <img src={auraLogo} alt="Aura Marketing" loading="lazy"
+            decoding="async" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}

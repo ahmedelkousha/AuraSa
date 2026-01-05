@@ -54,7 +54,7 @@ const BlogPage = () => {
         <div className="container mx-auto px-4">
           {/* Back Link */}
           <button
-            onClick={()=>navigate(-1)}
+            onClick={() => navigate(-1)}
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             {isRTL ? <ArrowRight className="w-5 h-5" /> : <ArrowLeft className="w-5 h-5" />}
@@ -91,6 +91,8 @@ const BlogPage = () => {
               <img
                 src="/placeholder.svg"
                 alt={isRTL ? currentBlog.titleAr : currentBlog.titleEn}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 lg:h-96 object-cover"
               />
             </div>

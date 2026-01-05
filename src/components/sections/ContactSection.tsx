@@ -100,8 +100,10 @@ const ContactSection = () => {
             ))}
           </motion.div>
         
-            <img className={`${!isRTL?'hidden':''} sm:w-[100vw] sm:h-[77vh] w-[100vw]`} src={catchyAr} alt="Catchy" />
-            <img className={`${isRTL?'hidden':''} sm:w-[100vw] sm:h-[77vh] w-[100vw]`} src={catchyEn} alt="Catchy" />
+            <img className={`${!isRTL?'hidden':''} sm:w-[100vw] sm:h-[77vh] w-[100vw]`} src={catchyAr} alt="Catchy" loading="lazy"
+  decoding="async" />
+            <img className={`${isRTL?'hidden':''} sm:w-[100vw] sm:h-[77vh] w-[100vw]`} src={catchyEn} alt="Catchy" loading="lazy"
+  decoding="async" />
             
           {/* WhatsApp CTA */}
           {/* <motion.div

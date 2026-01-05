@@ -85,6 +85,8 @@ const PartnersSection = () => {
                 <img
                   src={partner.logo}
                   alt={partner.name}
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-full max-h-full object-contain scale-[2] transform"
                 />
               </div>

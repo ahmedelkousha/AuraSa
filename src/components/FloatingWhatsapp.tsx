@@ -16,7 +16,7 @@ const FloatingWhatsApp = () => {
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 ${isRTL ? 'left-6' : 'right-6'} z-50 flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-4 py-3 rounded-full hover:scale-105 transition-transform duration-300 [animation:fadeGlow_3s_ease-in-out_infinite]`}
+      className={`fixed bottom-6 left-6 z-50 flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-4 py-3 rounded-full hover:scale-105 transition-transform duration-300 [animation:fadeGlow_3s_ease-in-out_infinite]`}
   >
       <WhatsAppIcon />
       <span className="text-sm font-medium whitespace-nowrap">
