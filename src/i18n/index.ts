@@ -1,6 +1,4 @@
 import i18n from 'i18next';
-import { Subtitles } from 'lucide-react';
-import { title } from 'process';
 import { initReactI18next } from 'react-i18next';
 
 const num = 316;
@@ -460,12 +458,6 @@ const resources = {
 
         conclusion: 'المحتوى لم يعد هو الملك وحده، بل "سياق المحتوى" (Context). التسويق الناجح هو الذي يظهر للشخص المناسب، في الوقت المناسب، وبالطريقة التي يفضلها (سواء كانت صورة، صوت، أو فيديو).',
       },
-      googleData: {
-        title: 'كيفية إنشاء متجر إلكتروني لزيادة مبيعاتك',
-        date: '2024-01-10',
-        readTime: '12',
-        content: ''
-      },
 
     },
   },
@@ -924,12 +916,6 @@ const resources = {
         section5Content: 'Search results in 2026 will be "short video clips" (Shorts) that answer questions. Users won\'t read "how to make specialty coffee", but rather watch a 15-second clip within search results. Therefore, video content creation is the most successful marketing investment now and in the future.',
 
         conclusion: 'Content is no longer king alone, but "content context" is. Successful marketing is what appears to the right person, at the right time, and in the way they prefer (whether it\'s an image, audio, or video).',
-      },
-      googleData: {
-        title: 'Google Data',
-        date: '2024-01-10',
-        readTime: '12',
-        content: ''
       },
     },
   },

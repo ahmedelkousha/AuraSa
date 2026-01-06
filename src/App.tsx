@@ -20,9 +20,6 @@ import ScrollToTop from "./components/ScrollToTop";
 // import Preloader from "./components/Preloader";
 import ScrollToTopButton from './components/ScrollToTopButton';
 import '@/i18n';
-import GulfTrend from './pages/GulfTrend'
-import Ecommerce from '@/pages/Ecommerce';
-import CommerceFuture from './pages/CommerceFuture';
 
 
 const queryClient = new QueryClient();
@@ -51,9 +48,6 @@ const App = () => {
               <Route path="/portfolio" element={<PortfolioPage />} />
 
               <Route path="/blog/:slug" element={<BlogPage />} />
-              <Route path="/blog/gulf-trend" element={<GulfTrend />} />
-              <Route path="/blog/ecommerce-guide" element={<Ecommerce />} />
-              <Route path="/blog/commerce-future-2026" element={<CommerceFuture />} />
 
               <Route path="/success-story" element={<SuccessStoryPage />} />
               <Route path="/terms" element={<TermsPage />} />
