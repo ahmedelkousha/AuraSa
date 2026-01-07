@@ -51,16 +51,14 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
         <img
           src={heroDesktop}
           alt="Aura Marketing Hero"
-          loading="lazy"
-          decoding="async"
+          loading="eager"
           className="w-full h-full object-cover object-left hidden sm:block"
           sizes="100vw"
         />
         <img
           src={heroMobile}
           alt="Aura Marketing Hero"
-          loading="lazy"
-          decoding="async"
+          loading="eager"
           className="w-[500px] h-[580px] absolute top-[120px] object-cover sm:block md:hidden lg:hidden block"
           sizes="100vw"
         />
