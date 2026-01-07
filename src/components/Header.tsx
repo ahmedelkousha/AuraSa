@@ -100,9 +100,8 @@ const Header = () => {
           <img
             src={auraLogo}
             alt="Aura Marketing"
-            loading="lazy"
-            decoding="async"
-            className="h-10 w-auto"
+            loading="eager"
+            className="h-11 w-auto"
           />
         </Link>
 
