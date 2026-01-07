@@ -1,12 +1,12 @@
-import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { MessageCircle, MapPin, Phone, Mail, Clock } from 'lucide-react';
-import catchyAr from '@/assets/catchyAr.webp';
-import catchyEn from '@/assets/catchyEn.webp';
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
+import catchyAr from "@/assets/catchyAr.webp";
+import catchyEn from "@/assets/catchyEn.webp";
 
 const ContactSection = () => {
   const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const isRTL = i18n.language === "ar";
 
   const whatsappLink = "https://wa.me/966539959221";
 
@@ -18,38 +18,38 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: Phone,
-      label: isRTL ? 'الهاتف' : 'Phone',
-      value: '+966 53 995 9221',
-      href: 'tel:+966539959221',
-      noRedirect: false
+      label: isRTL ? "الهاتف" : "Phone",
+      value: "+966 53 995 9221",
+      href: "tel:+966539959221",
+      noRedirect: false,
     },
     {
       icon: WhatsAppIcon,
-      label: isRTL ? 'واتساب' : 'WhatsApp',
-      value: '+966 53 995 9221',
+      label: isRTL ? "واتساب" : "WhatsApp",
+      value: "+966 53 995 9221",
       href: whatsappLink,
-      noRedirect: false
+      noRedirect: false,
     },
     {
       icon: Mail,
-      label: isRTL ? 'البريد الإلكتروني' : 'Email',
-      value: 'info@auramarketingsa.com',
-      href: 'mailto:info@auramarketingsa.com',
-      noRedirect: false
+      label: isRTL ? "البريد الإلكتروني" : "Email",
+      value: "info@auramarketingsa.com",
+      href: "mailto:info@auramarketingsa.com",
+      noRedirect: false,
     },
     {
       icon: MapPin,
-      label: isRTL ? 'الموقع' : 'Location',
-      value: isRTL ? 'جدة، المملكة العربية السعودية' : 'Jeddah, Saudi Arabia',
-      href: 'https://maps.app.goo.gl/hGyYEyUmbKovwKXTA?g_st=awb',
-      noRedirect: false
+      label: isRTL ? "الموقع" : "Location",
+      value: isRTL ? "جدة، المملكة العربية السعودية" : "Jeddah, Saudi Arabia",
+      href: "https://maps.app.goo.gl/hGyYEyUmbKovwKXTA?g_st=awb",
+      noRedirect: false,
     },
     {
       icon: Clock,
-      label: isRTL ? 'ساعات العمل' : 'Working Hours',
-      value: isRTL ? 'السبت - الخميس: 8 ص - 11 م' : 'Sat - Thu: 8 AM - 11 PM',
-      href: '',
-      noRedirect: true
+      label: isRTL ? "ساعات العمل" : "Working Hours",
+      value: isRTL ? "السبت - الخميس: 8 ص - 11 م" : "Sat - Thu: 8 AM - 11 PM",
+      href: "",
+      noRedirect: true,
     },
   ];
 
@@ -61,15 +61,14 @@ const ContactSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            {t('nav.contact')}
+            {t("nav.contact")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {isRTL
-              ? 'نحن هنا للإجابة على استفساراتك ومساعدتك في تحقيق أهدافك'
-              : 'We are here to answer your inquiries and help you achieve your goals'}
+              ? "نحن هنا للإجابة على استفساراتك ومساعدتك في تحقيق أهدافك"
+              : "We are here to answer your inquiries and help you achieve your goals"}
           </p>
         </motion.div>
 
@@ -79,31 +78,47 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
-          >
+            className="space-y-6">
             {contactInfo.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : undefined}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`${item.noRedirect && 'pointer-events-none'} flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group`}
-              >
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  item.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                className={`${
+                  item.noRedirect && "pointer-events-none"
+                } flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group`}>
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <item.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{item.label}</p>
-                  <p className="font-semibold text-foreground" dir="ltr">{item.value}</p>
+                  <p className="font-semibold text-foreground" dir="ltr">
+                    {item.value}
+                  </p>
                 </div>
               </a>
             ))}
           </motion.div>
 
-          <img className={`${!isRTL ? 'hidden' : ''} sm:w-[100vw] sm:h-[77vh] w-[100vw]`} src={catchyAr} alt="Catchy" loading="lazy"
-            decoding="async" />
-          <img className={`${isRTL ? 'hidden' : ''} sm:w-[100vw] sm:h-[77vh] w-[100vw]`} src={catchyEn} alt="Catchy" loading="lazy"
-            decoding="async" />
+          <img
+            className={`${!isRTL ? "hidden" : ""} h-auto w-auto`}
+            src={catchyAr}
+            alt="Catchy"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            className={`${isRTL ? "hidden" : ""} h-auto w-auto`}
+            src={catchyEn}
+            alt="Catchy"
+            loading="lazy"
+            decoding="async"
+          />
 
           {/* WhatsApp CTA */}
           {/* <motion.div
