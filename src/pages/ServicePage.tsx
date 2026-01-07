@@ -1,97 +1,142 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Users, TrendingUp, Palette, Globe, Search, Target, Heart, BarChart3, Grid3X3, LineChart, Megaphone, MousePointer, RefreshCw, Code, Layout, ShoppingCart, Rocket, Cog, X, ZoomIn } from 'lucide-react';
-import { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import PortfolioCarousel from '@/components/PortfolioCarousel';
-import VideoCarousel from '@/components/VideoCarousel';
+import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Users,
+  TrendingUp,
+  Palette,
+  Globe,
+  Search,
+  Target,
+  Heart,
+  BarChart3,
+  Grid3X3,
+  LineChart,
+  Megaphone,
+  MousePointer,
+  RefreshCw,
+  Code,
+  Layout,
+  ShoppingCart,
+  Rocket,
+  Cog,
+  X,
+  ZoomIn,
+} from "lucide-react";
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import VideoCarousel from "@/components/VideoCarousel";
+import ecommerce1 from "@/assets/website-ecommerce/ecommerce1.webp";
+import ecommerce2 from "@/assets/website-ecommerce/ecommerce2.webp";
+import ecommerce3 from "@/assets/website-ecommerce/ecommerce3.webp";
+import ecommerce4 from "@/assets/website-ecommerce/ecommerce4.webp";
+import ecommerce5 from "@/assets/website-ecommerce/ecommerce5.webp";
 
 // Social Media Hero and Gallery Images
-import socialHero from '@/assets/smm-service/socialHero.webp';
-import smm1 from '@/assets/smm-service/smm1.webp';
-import smm2 from '@/assets/smm-service/smm2.webp';
-import smm3 from '@/assets/smm-service/smm3.webp';
-import smm4 from '@/assets/smm-service/smm4.webp';
-import smm5 from '@/assets/smm-service/smm5.webp';
+import socialHero from "@/assets/smm-service/socialHero.webp";
+import smm1 from "@/assets/smm-service/smm1.webp";
+import smm2 from "@/assets/smm-service/smm2.webp";
+import smm3 from "@/assets/smm-service/smm3.webp";
+import smm4 from "@/assets/smm-service/smm4.webp";
+import smm5 from "@/assets/smm-service/smm5.webp";
 
 // Paid Ads Hero and Gallery Images
-import adsHero from '@/assets/ads-service/adsHero.webp';
-import ads1 from '@/assets/ads-service/ads1.webp';
-import ads2 from '@/assets/ads-service/ads2.webp';
-import ads3 from '@/assets/ads-service/ads3.webp';
-import ads4 from '@/assets/ads-service/ads4.webp';
+import adsHero from "@/assets/ads-service/adsHero.webp";
+import ads1 from "@/assets/ads-service/ads1.webp";
+import ads2 from "@/assets/ads-service/ads2.webp";
+import ads3 from "@/assets/ads-service/ads3.webp";
+import ads4 from "@/assets/ads-service/ads4.webp";
 
 // Motion Graphics Hero and Gallery Images
-import motionHero from '@/assets/motion-graphics/motionHero.webp';
+import motionHero from "@/assets/motion-graphics/motionHero.webp";
 
-// Motion Graphics Hero and Gallery Images
-import ecommerceHero from '@/assets/ecommerce/ecommerceHero.webp';
-
+// Websites - Ecommerce Hero and Gallery Images
+import ecommerceHero from "@/assets/ecommerce/ecommerceHero.webp";
 
 const socialMediaGallery = [
-  { id: 1, image: smm1, title: 'Social Media Campaign 1' },
-  { id: 2, image: smm2, title: 'Social Media Campaign 2' },
-  { id: 3, image: smm3, title: 'Social Media Campaign 3' },
-  { id: 4, image: smm4, title: 'Social Media Campaign 4' },
-  { id: 5, image: smm5, title: 'Social Media Campaign 5' },
+  { id: 1, image: smm1, title: "Social Media Campaign 1" },
+  { id: 2, image: smm2, title: "Social Media Campaign 2" },
+  { id: 3, image: smm3, title: "Social Media Campaign 3" },
+  { id: 4, image: smm4, title: "Social Media Campaign 4" },
+  { id: 5, image: smm5, title: "Social Media Campaign 5" },
 ];
 
 const adsGallery = [
-  { id: 1, image: ads1, title: 'Ads Campaign 1' },
-  { id: 2, image: ads2, title: 'Ads Campaign 2' },
-  { id: 3, image: ads3, title: 'Ads Campaign 3' },
-  { id: 4, image: ads4, title: 'Ads Campaign 4' },
+  { id: 1, image: ads1, title: "Ads Campaign 1" },
+  { id: 2, image: ads2, title: "Ads Campaign 2" },
+  { id: 3, image: ads3, title: "Ads Campaign 3" },
+  { id: 4, image: ads4, title: "Ads Campaign 4" },
 ];
 
-const motionGraphicsGallery = [
-  { id: 1, image: ads1, title: 'Ads Campaign 1' },
-  { id: 2, image: ads2, title: 'Ads Campaign 2' },
-  { id: 3, image: ads3, title: 'Ads Campaign 3' },
-  { id: 4, image: ads4, title: 'Ads Campaign 4' },
+const ecommerceGallery = [
+  { id: 1, image: ecommerce1, title: "Website 1" },
+  { id: 2, image: ecommerce2, title: "Website 2" },
+  { id: 3, image: ecommerce3, title: "Website 3" },
+  { id: 4, image: ecommerce4, title: "Website 4" },
+  { id: 5, image: ecommerce5, title: "Website 5" },
 ];
 
-const serviceData: Record<string, { icon: typeof Users; color: string; translationKey: string; hasVideos?: boolean; }> = {
-  'social-media': {
+const serviceData: Record<
+  string,
+  {
+    icon: typeof Users;
+    color: string;
+    translationKey: string;
+    hasVideos?: boolean;
+  }
+> = {
+  "social-media": {
     icon: Users,
-    color: 'from-blue-500 to-cyan-500',
-    translationKey: 'socialMedia',
+    color: "from-blue-500 to-cyan-500",
+    translationKey: "socialMedia",
     hasVideos: false,
   },
-  'motion-graphics': {
+  "motion-graphics": {
     icon: Palette,
-    color: 'from-purple-500 to-pink-500',
-    translationKey: 'motionGraphics',
+    color: "from-purple-500 to-pink-500",
+    translationKey: "motionGraphics",
     hasVideos: true,
   },
-  'campaigns': {
+  campaigns: {
     icon: TrendingUp,
-    color: 'from-orange-500 to-red-500',
-    translationKey: 'campaigns',
+    color: "from-orange-500 to-red-500",
+    translationKey: "campaigns",
     hasVideos: false,
   },
-  'ecommerce': {
+  ecommerce: {
     icon: Globe,
-    color: 'from-green-500 to-emerald-500',
-    translationKey: 'ecommerce',
-    hasVideos: false
+    color: "from-green-500 to-emerald-500",
+    translationKey: "ecommerce",
+    hasVideos: false,
   },
 };
 
 const heroImages: Record<string, string> = {
-  'social-media': socialHero,
-  'campaigns': adsHero,
-  'motion-graphics': motionHero,
-  'ecommerce': ecommerceHero
+  "social-media": socialHero,
+  campaigns: adsHero,
+  "motion-graphics": motionHero,
+  ecommerce: ecommerceHero,
 };
 
-const featureIcons: Record<string, typeof Search[]> = {
+const serviceGalleries: Record<
+  string,
+  { id: number; image: string; title: string }[]
+> = {
+  "social-media": socialMediaGallery,
+  campaigns: adsGallery,
+  "motion-graphics": ecommerceGallery, // <-- motion graphics images
+  ecommerce: ecommerceGallery, // <-- ecommerce images
+};
+
+const featureIcons: Record<string, (typeof Search)[]> = {
   socialMedia: [Search, Target, Heart, Grid3X3, Grid3X3, BarChart3],
   motionGraphics: [Palette, Megaphone, Users],
   campaigns: [Megaphone, MousePointer, RefreshCw, LineChart],
@@ -101,30 +146,32 @@ const featureIcons: Record<string, typeof Search[]> = {
 const ServicePage = () => {
   const { service } = useParams<{ service: string }>();
   const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const isRTL = i18n.language === "ar";
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const currentService = service ? serviceData[service as keyof typeof serviceData] : null;
-  const isSocialMedia = service === 'social-media';
-  const isCampaigns = service === 'campaigns';
-  const isMotionGraphics = service === 'motion-graphics';
-  const isWebDev = service === 'ecommerce';
+  const currentService = service
+    ? serviceData[service as keyof typeof serviceData]
+    : null;
+  const isSocialMedia = service === "social-media";
+  const isCampaigns = service === "campaigns";
+  const isMotionGraphics = service === "motion-graphics";
+  const isWebDev = service === "ecommerce";
 
   const heroImage = service ? heroImages[service] : null;
-
+  const activeGallery = service ? serviceGalleries[service] : [];
 
   const openLightbox = (image: string) => {
     setLightboxImage(image);
     setLightboxOpen(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setLightboxOpen(false);
     setLightboxImage(null);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   if (!currentService) {
@@ -134,10 +181,12 @@ const ServicePage = () => {
         <main className="pt-32 pb-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl font-bold text-foreground mb-4">
-              {isRTL ? 'الخدمة غير موجودة' : 'Service Not Found'}
+              {isRTL ? "الخدمة غير موجودة" : "Service Not Found"}
             </h1>
-            <button onClick={() => navigate(-1)} className="text-primary hover:underline">
-              {isRTL ? 'العودة للصفحة السابقة' : 'Back to Previous Page'}
+            <button
+              onClick={() => navigate(-1)}
+              className="text-primary hover:underline">
+              {isRTL ? "العودة للصفحة السابقة" : "Back to Previous Page"}
             </button>
           </div>
         </main>
@@ -152,10 +201,10 @@ const ServicePage = () => {
 
   // Get number of features based on service
   const getFeatureCount = () => {
-    if (translationKey === 'socialMedia') return 6;
-    if (translationKey === 'motionGraphics') return 3;
-    if (translationKey === 'campaigns') return 4;
-    if (translationKey === 'ecommerce') return 5;
+    if (translationKey === "socialMedia") return 6;
+    if (translationKey === "motionGraphics") return 3;
+    if (translationKey === "campaigns") return 4;
+    if (translationKey === "ecommerce") return 5;
     return 0;
   };
 
@@ -169,20 +218,26 @@ const ServicePage = () => {
           {/* Back Link */}
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
-          >
-            {isRTL ? <ArrowRight className="w-5 h-5" /> : <ArrowLeft className="w-5 h-5" />}
-            <span>{isRTL ? 'العودة للصفحة السابقة' : 'Back to Previous Page'}</span>
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8">
+            {isRTL ? (
+              <ArrowRight className="w-5 h-5" />
+            ) : (
+              <ArrowLeft className="w-5 h-5" />
+            )}
+            <span>
+              {isRTL ? "العودة للصفحة السابقة" : "Back to Previous Page"}
+            </span>
           </button>
           {/* Hero Section - Different layout for Social Media and Campaigns */}
-          {(heroImage) ? (
+          {heroImage ? (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-16"
-            >
-              <div className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
-
+              className="mb-16">
+              <div
+                className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 ${
+                  isRTL ? "lg:flex-row-reverse" : ""
+                }`}>
                 {/* Hero Image */}
                 <div className="flex-1 w-full max-w-md lg:max-w-lg">
                   <motion.img
@@ -195,12 +250,12 @@ const ServicePage = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                   />
-
                 </div>
 
                 {/* Text Content */}
                 <div className="flex-1 text-center lg:text-start">
-                  <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${currentService.color} flex items-center justify-center mb-6 mx-auto lg:mx-0`}>
+                  <div
+                    className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${currentService.color} flex items-center justify-center mb-6 mx-auto lg:mx-0`}>
                     <Icon className="w-10 h-10 text-white" />
                   </div>
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -213,16 +268,15 @@ const ServicePage = () => {
                     {t(`servicePage.${translationKey}.heroDesc`)}
                   </p>
                 </div>
-
               </div>
             </motion.div>
           ) : (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-16"
-            >
-              <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${currentService.color} flex items-center justify-center mb-6`}>
+              className="mb-16">
+              <div
+                className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${currentService.color} flex items-center justify-center mb-6`}>
                 <Icon className="w-10 h-10 text-white" />
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -242,15 +296,13 @@ const ServicePage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mb-16 text-center sm:text-right"
-          >
+            className="mb-16 text-center sm:text-right">
             <a
               href="https://wa.me/966539959221"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block btn-aura rounded-full text-primary-foreground px-8 py-4 text-lg font-bold"
-            >
-              {t('servicePage.startNow')}
+              className="inline-block btn-aura rounded-full text-primary-foreground px-8 py-4 text-lg font-bold">
+              {t("servicePage.startNow")}
             </a>
           </motion.div>
 
@@ -259,10 +311,9 @@ const ServicePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mb-8"
-          >
+            className="mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              {t('servicePage.portfolioTitle')}
+              {t("servicePage.portfolioTitle")}
             </h2>
             <p className="text-muted-foreground mb-8">
               {t(`servicePage.${translationKey}.portfolioDesc`)}
@@ -274,26 +325,22 @@ const ServicePage = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <VideoCarousel
-                title={''}
-              />
+              transition={{ delay: 0.6 }}>
+              <VideoCarousel title={""} />
             </motion.div>
           )}
 
           {/* Gallery Carousel with Lightbox for Social Media and Campaigns */}
 
-          {(isSocialMedia || isCampaigns || isMotionGraphics || isWebDev) ? (!currentService.hasVideos &&
+          {!currentService.hasVideos && activeGallery.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mb-16"
-            >
+              className="mb-16">
               <Swiper
                 key={i18n.language}
-                dir={isRTL ? 'rtl' : 'ltr'}
+                dir={isRTL ? "rtl" : "ltr"}
                 modules={[Navigation, Pagination]}
                 navigation
                 pagination={{ clickable: true }}
@@ -305,14 +352,12 @@ const ServicePage = () => {
                   1024: { slidesPerView: 2.5 },
                   1280: { slidesPerView: 3 },
                 }}
-                className="portfolio-swiper !pb-12"
-              >
-                {(isSocialMedia ? socialMediaGallery : adsGallery).map((item) => (
+                className="portfolio-swiper !pb-12">
+                {activeGallery.map((item) => (
                   <SwiperSlide key={item.id}>
                     <div
                       className="relative group cursor-pointer rounded-2xl overflow-hidden bg-card border border-border"
-                      onClick={() => openLightbox(item.image)}
-                    >
+                      onClick={() => openLightbox(item.image)}>
                       <img
                         src={item.image}
                         alt={item.title}
@@ -328,15 +373,6 @@ const ServicePage = () => {
                 ))}
               </Swiper>
             </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <PortfolioCarousel title="" />
-            </motion.div>
-
           )}
 
           {/* Why Choose Section */}
@@ -344,8 +380,7 @@ const ServicePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-12"
-          >
+            className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
               {t(`servicePage.${translationKey}.whyChoose`)}
             </h2>
@@ -356,23 +391,28 @@ const ServicePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
-          >
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {Array.from({ length: featureCount }).map((_, index) => {
               const FeatureIcon = icons[index] || Search;
               return (
                 <div
                   key={index}
-                  className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 group"
-                >
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${currentService.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 group">
+                  <div
+                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${currentService.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                     <FeatureIcon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-2">
-                    {t(`servicePage.${translationKey}.feature${index + 1}Title`)}
+                    {t(
+                      `servicePage.${translationKey}.feature${index + 1}Title`
+                    )}
                   </h3>
                   <p className="text-sm text-primary mb-3">
-                    {t(`servicePage.${translationKey}.feature${index + 1}Subtitle`)}
+                    {t(
+                      `servicePage.${translationKey}.feature${
+                        index + 1
+                      }Subtitle`
+                    )}
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
                     {t(`servicePage.${translationKey}.feature${index + 1}Desc`)}
@@ -387,18 +427,16 @@ const ServicePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="mt-16 text-center"
-          >
+            className="mt-16 text-center">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              {t('servicePage.readyToStart')}
+              {t("servicePage.readyToStart")}
             </h3>
             <a
               href="https://wa.me/966539959221"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block btn-aura rounded-full text-primary-foreground"
-            >
-              {t('servicePage.contactNow')}
+              className="inline-block btn-aura rounded-full text-primary-foreground">
+              {t("servicePage.contactNow")}
             </a>
           </motion.div>
         </div>
@@ -412,13 +450,11 @@ const ServicePage = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95"
-            onClick={closeLightbox}
-          >
+            onClick={closeLightbox}>
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
-            >
+              className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
               <X className="w-8 h-8 text-white" />
             </button>
 
@@ -427,9 +463,8 @@ const ServicePage = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: 'spring', damping: 25 }}
-              className="relative w-full h-full flex items-center justify-center p-4 md:p-8"
-            >
+              transition={{ type: "spring", damping: 25 }}
+              className="relative w-full h-full flex items-center justify-center p-4 md:p-8">
               <img
                 src={lightboxImage}
                 alt="Fullscreen view"

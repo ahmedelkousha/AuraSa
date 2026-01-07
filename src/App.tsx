@@ -25,7 +25,7 @@ import '@/i18n';
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   return (
     <QueryClientProvider client={queryClient}>

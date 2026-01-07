@@ -111,7 +111,7 @@ const BlogPage = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <header className="mb-12">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
                 {getBlogText('title')}
               </h1>
               <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
