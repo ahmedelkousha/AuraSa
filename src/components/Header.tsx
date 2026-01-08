@@ -1,18 +1,25 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useTheme } from "next-themes";
 import auraLogo from "@/assets/aura-logo.png";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
+  const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
   const isRTL = i18n.language === "ar";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,6 +128,20 @@ const Header = () => {
 
         {/* ACTIONS */}
         <div className="flex items-center gap-4">
+          {/* THEME TOGGLE */}
+          {/* {mounted && (
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="flex items-center justify-center w-10 h-10 rounded-full text-foreground/80 hover:text-primary hover:bg-secondary/50 transition-colors"
+              aria-label="Toggle theme">
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
+          )} */}
+
           {/* LANGUAGE */}
           <button
             onClick={toggleLanguage}
