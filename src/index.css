@@ -267,6 +267,8 @@
     box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
   }
 }
-
+#home, #services, #portfolio, #about, #contact {
+  scroll-margin-top: 80px; /* Adjust to your header height */
+}
 
 /* GSAP animations will be handled in components */

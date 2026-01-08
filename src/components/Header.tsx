@@ -71,12 +71,14 @@ const Header = () => {
     const hash = item.hash;
 
     if (location.pathname !== "/") {
-      navigate("/" + hash);
+      navigate("/" + hash, { replace: true });
       return;
     }
 
     const element = document.querySelector(hash);
     if (!element) return;
+
+    window.history.replaceState(null, "", hash);
 
     window.scrollTo({ top: 0, behavior: "auto" });
 

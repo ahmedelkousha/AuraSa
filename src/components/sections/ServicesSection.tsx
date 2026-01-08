@@ -61,8 +61,8 @@ const ServicesSection = () => {
             y: 0,
             opacity: 1,
             rotateX: 0,
-            stagger: 0.15,
-            duration: 0.8,
+            stagger: 0.1,
+            duration: 0.3,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: sectionRef.current,
@@ -83,7 +83,7 @@ const ServicesSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
