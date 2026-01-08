@@ -13,8 +13,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import auraLogo from "@/assets/aura-logo.png";
 import twitter from "@/assets/icons/x.png";
-import snapchat from "@/assets/icons/snapchat.png";
 import tiktok from "@/assets/icons/tiktok.png";
+import snapchat from "@/assets/icons/snapchat.png";
 
 
 /* =========================
