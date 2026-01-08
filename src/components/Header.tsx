@@ -128,20 +128,6 @@ const Header = () => {
 
         {/* ACTIONS */}
         <div className="flex items-center gap-4">
-          {/* THEME TOGGLE */}
-          {/* {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="flex items-center justify-center w-10 h-10 rounded-full text-foreground/80 hover:text-primary hover:bg-secondary/50 transition-colors"
-              aria-label="Toggle theme">
-              {theme === "dark" ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button>
-          )} */}
-
           {/* LANGUAGE */}
           <button
             onClick={toggleLanguage}

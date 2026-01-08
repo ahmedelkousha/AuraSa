@@ -75,11 +75,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FloatingWhatsApp from "./components/FloatingWhatsapp";
 import LanguageProvider from "./components/LanguageProvider";
-// import ThemeProvider from "./components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import "@/i18n";
-import i18n from "@/i18n";
 import { useTranslation } from "react-i18next";
 
 // Lazy load page components
@@ -116,7 +114,6 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* <ThemeProvider> */}
           <LanguageProvider>
             <Toaster />
             <Sonner />
@@ -139,7 +136,6 @@ const App = () => {
               </Suspense>
             </BrowserRouter>
           </LanguageProvider>
-        {/* </ThemeProvider> */}
       </TooltipProvider>
     </QueryClientProvider>
   );

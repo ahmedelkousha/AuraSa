@@ -79,17 +79,6 @@ export default defineConfig(({ mode }) => ({
       },
     },
     chunkSizeWarningLimit: 700,
-
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("react")) return "react";
-            return "vendor";
-          }
-        },
-      },
-    },
   },
 
   resolve: {
