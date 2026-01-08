@@ -27,6 +27,12 @@ const Header = () => {
     i18n.changeLanguage(newLang);
   };
 
+  /**
+   * NAV ITEMS
+   * - hash  => jump link
+   * - route => redirect
+   */
+
   type HashNavItem = {
     key: string;
     type: "hash";
@@ -65,18 +71,24 @@ const Header = () => {
     const hash = item.hash;
 
     if (location.pathname !== "/") {
-      navigate("/" + hash);
+      navigate("/" + hash, { replace: true });
       return;
     }
 
     const element = document.querySelector(hash);
     if (!element) return;
 
-    // Scroll FIRST for immediate response - using scrollIntoView
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", hash);
 
-    // Then update URL (non-blocking)
-    navigate(hash, { replace: false });
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    requestAnimationFrame(() => {
+      const headerOffset = 100;
+      const y =
+        element.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    });
   };
 
   return (

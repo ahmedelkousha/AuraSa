@@ -60,18 +60,24 @@ const FooterDropdown = ({
     const hash = item.hash;
 
     if (location.pathname !== "/") {
-      navigate("/" + hash);
+      navigate("/" + hash, { replace: true });
       return;
     }
 
     const element = document.querySelector(hash);
     if (!element) return;
 
-    // Scroll FIRST for immediate response - using scrollIntoView
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", hash);
 
-    // Then update URL (non-blocking)
-    navigate(hash, { replace: false });
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    requestAnimationFrame(() => {
+      const headerOffset = 100;
+      const y =
+        element.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    });
   };
 
   return (
@@ -153,7 +159,7 @@ const Footer = () => {
   const quickLinks: FooterItem[] = [
     { label: t("nav.home"), type: "hash", hash: "#home" },
     { label: t("nav.services"), type: "hash", hash: "#services" },
-    { label: t("nav.portfolio"), type: "route", path: "/portfolio" },
+    { label: t("nav.portfolio"), type: "route", path: "/portfolio" }, // 👈 only route
     { label: t("nav.about"), type: "hash", hash: "#about" },
     { label: t("nav.contact"), type: "hash", hash: "#contact" },
   ];
