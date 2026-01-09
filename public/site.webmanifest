@@ -1,0 +1,69 @@
+{
+  "name": "Aura Marketing | وكالة أورا للتسويق",
+  "short_name": "Aura Marketing",
+  "description": "حيث يبدأ بريق علامتك - نصمم متجرك، نصنع هويتك، ندير منصاتك، ونقود حملاتك الإعلانية.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0084ff",
+  "orientation": "any",
+  "lang": "ar",
+  "dir": "rtl",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/preview-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "marketing", "design"],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "",
+  "shortcuts": [
+    {
+      "name": "الخدمات | Services",
+      "short_name": "Services",
+      "description": "تصفح خدماتنا | Browse our services",
+      "url": "/#services",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "الأعمال | Portfolio",
+      "short_name": "Portfolio",
+      "description": "شاهد أعمالنا | View our work",
+      "url": "/portfolio",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ]
+}

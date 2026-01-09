@@ -201,8 +201,9 @@ const PortfolioPage = () => {
               {t("successStory.wantResults")}
             </h3>
             <p className="text-muted-foreground mb-6">
-              حوّل رؤيتك إلى واقع بصري متكامل .. ابدأ رحلة التميز معنا اليوم
-              واصنع لعلامتك التجارية الحضور الذي تستحقه!
+              {isRTL
+                ? "حوّل رؤيتك إلى واقع بصري متكامل .. ابدأ رحلة التميز معنا اليوم واصنع لعلامتك التجارية الحضور الذي تستحقه!"
+                : "Turn your vision into a complete visual reality. Start your journey of excellence with us today and create the presence your brand deserves!"}
             </p>
             <a
               href="https://wa.me/966539959221"
