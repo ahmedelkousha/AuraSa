@@ -75,7 +75,7 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
+            initial={{ opacity: 0, x: isRTL ? 60 : -0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-6">
