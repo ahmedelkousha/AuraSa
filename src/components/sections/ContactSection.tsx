@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import catchyAr from "@/assets/catchyAr.webp";
 import catchyEn from "@/assets/catchyEn.webp";
 
@@ -41,7 +41,7 @@ const ContactSection = () => {
       icon: MapPin,
       label: isRTL ? "الموقع" : "Location",
       value: isRTL ? "جدة، المملكة العربية السعودية" : "Jeddah, Saudi Arabia",
-      href: "https://maps.app.goo.gl/hGyYEyUmbKovwKXTA?g_st=awb",
+      href: "https://maps.app.goo.gl/GqgknJGoemyDSojq7",
       noRedirect: false,
     },
     {

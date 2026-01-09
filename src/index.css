@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,58 +9,67 @@
     /* Dark theme as default */
     --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    
+
     --card: 0 0% 7%;
     --card-foreground: 0 0% 98%;
-    
+
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 98%;
-    
+
     /* Aura Pink as primary accent */
- 
+
     --primary: 314, 65%, 48%;
     --primary-foreground: 0 0% 100%;
-    
+
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
-    
+
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
-    
+
     --accent: 317 67% 49%;
     --accent-foreground: 0 0% 100%;
-    
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    
+
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 317 67% 49%;
-    
+
     --radius: 0.75rem;
-    
+
     /* Custom Aura variables */
     --aura-pink: 317 67% 49%;
     --aura-pink-glow: 317 67% 60%;
     --aura-dark: 0 0% 4%;
     --aura-darker: 0 0% 2%;
     --aura-light: 0 0% 98%;
-    
+
     /* Gradients */
     --gradient-pink: linear-gradient(135deg, hsl(0, 0%, 0%), hsl(0, 0%, 0%));
     --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 7%), hsl(0, 0%, 4%));
-    --gradient-glow: radial-gradient(ellipse at center, hsla(0, 0%, 0%, 0.15), transparent 70%);
-    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 4%) 0%, hsl(317, 67%, 15%, 0.3) 50%, hsl(0, 0%, 4%) 100%);
-    
+    --gradient-glow: radial-gradient(
+      ellipse at center,
+      hsla(0, 0%, 0%, 0.15),
+      transparent 70%
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(0, 0%, 4%) 0%,
+      hsl(317, 67%, 15%, 0.3) 50%,
+      hsl(0, 0%, 4%) 100%
+    );
+
     /* Shadows */
     --shadow-pink: 0 0 60px hsl(317, 67%, 49%, 0.3);
     --shadow-card: 0 10px 40px hsl(0, 0%, 0%, 0.5);
     --shadow-button: 0 4px 20px hsl(317, 67%, 49%, 0.4);
-    
+
     /* Typography */
-    --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
-    --font-english: 'League Spartan', sans-serif;
-    
+    --font-arabic: "IBM Plex Sans Arabic", sans-serif;
+    --font-english: "League Spartan", sans-serif;
+
     /* Sidebar */
     --sidebar-background: 0 0% 7%;
     --sidebar-foreground: 0 0% 98%;
@@ -99,41 +108,41 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
-  
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-arabic);
     overflow-x: hidden;
   }
-  
+
   /* RTL support */
   [dir="rtl"] body {
     font-family: var(--font-arabic);
   }
-  
+
   [dir="ltr"] body {
     font-family: var(--font-english);
   }
-  
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-track {
     background: hsl(var(--background));
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: hsl(var(--muted));
     border-radius: 4px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--primary));
   }
@@ -146,38 +155,38 @@
     background: linear-gradient(135deg, hsl(317, 67%, 49%), hsl(317, 67%, 40%));
     box-shadow: 0 4px 20px hsl(317, 67%, 49%, 0.4);
   }
-  
+
   .btn-aura:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px hsl(317, 67%, 49%, 0.6);
   }
-  
+
   .btn-outline-aura {
     @apply border-2 px-4 py-4 font-semibold transition-all duration-300;
     border-color: hsl(317, 67%, 49%);
     color: hsl(317, 67%, 49%);
   }
-  
+
   .btn-outline-aura:hover {
     background: hsl(317, 67%, 49%, 0.1);
   }
-  
+
   /* Glass effect */
   .glass {
     background: hsl(0, 0%, 7%, 0.8);
     backdrop-filter: blur(20px);
     border: 1px solid hsl(0, 0%, 20%, 0.5);
   }
-  
+
   /* Glow effects */
   .glow-pink {
     box-shadow: 0 0 60px hsl(317, 67%, 49%, 0.3);
   }
-  
+
   .text-glow {
     text-shadow: 0 0 30px hsl(317, 67%, 49%, 0.5);
   }
-  
+
   /* Gradient text */
   .text-gradient {
     background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(317, 67%, 60%));
@@ -185,37 +194,42 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   /* Section backgrounds */
   .section-gradient {
-    background: linear-gradient(180deg, hsl(0, 0%, 4%), hsl(0, 0%, 7%), hsl(0, 0%, 4%));
+    background: linear-gradient(
+      180deg,
+      hsl(0, 0%, 4%),
+      hsl(0, 0%, 7%),
+      hsl(0, 0%, 4%)
+    );
   }
-  
+
   /* Card hover effects */
   .card-hover {
     @apply transition-all duration-500;
   }
-  
+
   .card-hover:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 60px hsl(317, 67%, 49%, 0.2);
   }
-  
+
   /* Animated underline */
   .underline-aura {
     @apply relative;
   }
-  
+
   .underline-aura::after {
-    content: '';
+    content: "";
     @apply absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300;
     background: hsl(317, 67%, 49%);
   }
-  
+
   .underline-aura:hover::after {
     @apply w-full;
   }
-  
+
   /* RTL underline */
   [dir="rtl"] .underline-aura::after {
     @apply left-auto right-0;
@@ -227,19 +241,19 @@
   .animation-delay-200 {
     animation-delay: 200ms;
   }
-  
+
   .animation-delay-400 {
     animation-delay: 400ms;
   }
-  
+
   .animation-delay-600 {
     animation-delay: 600ms;
   }
-  
+
   .animation-delay-800 {
     animation-delay: 800ms;
   }
-  
+
   /* Perspective for 3D effects */
   .perspective-1000 {
     perspective: 1000px;
@@ -258,7 +272,8 @@
 }
 /* WhatsApp button fade animation */
 @keyframes fadeGlow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
   }
@@ -267,8 +282,12 @@
     box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
   }
 }
-#home, #services, #portfolio, #about, #contact {
-  scroll-margin-top: 80px; /* Adjust to your header height */
-}
+/* #home,
+#services,
+#portfolio,
+#about,
+#contact {
+  scroll-margin-top: 70px;
+} */
 
 /* GSAP animations will be handled in components */

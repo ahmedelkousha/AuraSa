@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
@@ -132,12 +133,12 @@ const serviceGalleries: Record<
 > = {
   "social-media": socialMediaGallery,
   campaigns: adsGallery,
-  "motion-graphics": ecommerceGallery, // <-- motion graphics images
-  ecommerce: ecommerceGallery, // <-- ecommerce images
+  "motion-graphics": [],
+  ecommerce: ecommerceGallery,
 };
 
 const featureIcons: Record<string, (typeof Search)[]> = {
-  socialMedia: [Search, Target, Heart, Grid3X3, Grid3X3, BarChart3],
+  socialMedia: [Search, Target, Heart, Grid3X3, BarChart3],
   motionGraphics: [Palette, Megaphone, Users],
   campaigns: [Megaphone, MousePointer, RefreshCw, LineChart],
   ecommerce: [Layout, ShoppingCart, Code, Rocket, Cog],
@@ -154,10 +155,6 @@ const ServicePage = () => {
   const currentService = service
     ? serviceData[service as keyof typeof serviceData]
     : null;
-  const isSocialMedia = service === "social-media";
-  const isCampaigns = service === "campaigns";
-  const isMotionGraphics = service === "motion-graphics";
-  const isWebDev = service === "ecommerce";
 
   const heroImage = service ? heroImages[service] : null;
   const activeGallery = service ? serviceGalleries[service] : [];
@@ -177,6 +174,14 @@ const ServicePage = () => {
   if (!currentService) {
     return (
       <div className="min-h-screen bg-background">
+        <Helmet>
+          <title>
+            {isRTL
+              ? "الخدمة غير موجودة - Aura Marketing"
+              : "Service Not Found - Aura Marketing"}
+          </title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <Header />
         <main className="pt-32 pb-20">
           <div className="container mx-auto px-4 text-center">
@@ -198,20 +203,99 @@ const ServicePage = () => {
   const Icon = currentService.icon;
   const translationKey = currentService.translationKey;
   const icons = featureIcons[translationKey] || [];
+  const featureCount = icons.length;
+
+  // SEO Data - Get from translations
+  const pageTitle = t(`servicePage.${translationKey}.seo.title`);
+  const pageDescription = t(`servicePage.${translationKey}.seo.description`);
+  const pageKeywords = t(`servicePage.${translationKey}.seo.keywords`);
+  const pageUrl = `https://auramarketingsa.com/services/${service}`;
+  const ogImage = heroImage || "/preview-logo.png";
 
   // Get number of features based on service
-  const getFeatureCount = () => {
-    if (translationKey === "socialMedia") return 6;
-    if (translationKey === "motionGraphics") return 3;
-    if (translationKey === "campaigns") return 4;
-    if (translationKey === "ecommerce") return 5;
-    return 0;
-  };
+  // const getFeatureCount = () => {
+  //   if (translationKey === "socialMedia") return 6;
+  //   if (translationKey === "motionGraphics") return 3;
+  //   if (translationKey === "campaigns") return 4;
+  //   if (translationKey === "ecommerce") return 5;
+  //   return 0;
+  // };
 
-  const featureCount = getFeatureCount();
+  // const featureCount = getFeatureCount();
 
   return (
     <div className="min-h-screen bg-background">
+      {/* SEO Meta Tags */}
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>{pageTitle}</title>
+        <meta name="title" content={pageTitle} />
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={pageKeywords} />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content={isRTL ? "Arabic" : "English"} />
+        <meta name="author" content="Aura Marketing" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:locale" content={isRTL ? "ar_SA" : "en_US"} />
+        <meta property="og:site_name" content="Aura Marketing" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={pageUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:site" content="@auramarketingsa" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={pageUrl} />
+
+        {/* Language alternates */}
+        <link rel="alternate" hrefLang="ar" href={pageUrl} />
+        <link rel="alternate" hrefLang="en" href={pageUrl} />
+        <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+
+        {/* Structured Data for Service */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: pageTitle,
+            description: pageDescription,
+            provider: {
+              "@type": "Organization",
+              name: "Aura Marketing",
+              url: "https://auramarketingsa.com",
+              logo: "https://auramarketingsa.com/preview-logo.png",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+966539959221",
+                contactType: "customer service",
+                areaServed: "SA",
+                availableLanguage: ["Arabic", "English"],
+              },
+            },
+            areaServed: {
+              "@type": "Country",
+              name: "Saudi Arabia",
+            },
+            availableLanguage: ["Arabic", "English"],
+            offers: {
+              "@type": "Offer",
+              url: pageUrl,
+              priceCurrency: "SAR",
+              availability: "https://schema.org/InStock",
+            },
+          })}
+        </script>
+      </Helmet>
+
       <Header />
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -228,7 +312,8 @@ const ServicePage = () => {
               {isRTL ? "العودة للصفحة السابقة" : "Back to Previous Page"}
             </span>
           </button>
-          {/* Hero Section - Different layout for Social Media and Campaigns */}
+
+          {/* Hero Section */}
           {heroImage ? (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -330,8 +415,7 @@ const ServicePage = () => {
             </motion.div>
           )}
 
-          {/* Gallery Carousel with Lightbox for Social Media and Campaigns */}
-
+          {/* Gallery Carousel with Lightbox */}
           {!currentService.hasVideos && activeGallery.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -442,6 +526,7 @@ const ServicePage = () => {
         </div>
       </main>
       <Footer />
+
       {/* Lightbox Modal */}
       <AnimatePresence>
         {lightboxOpen && lightboxImage && (
@@ -451,15 +536,13 @@ const ServicePage = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95"
             onClick={closeLightbox}>
-            {/* Close Button */}
             <button
               onClick={closeLightbox}
               className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
               <X className="w-8 h-8 text-white" />
             </button>
-
-            {/* Image Container */}
             <motion.div
+              onClick={(e) => e.stopPropagation()}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
