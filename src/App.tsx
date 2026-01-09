@@ -103,7 +103,7 @@ const PageLoader = () => {
       <div className="flex flex-col items-center gap-4">
         <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
         <p className="text-muted-foreground">
-          {isRTL ? "جارٍ التحميل..." : "Loading..."}
+          {isRTL ? "جاري التحميل..." : "Loading..."}
         </p>
       </div>
     </div>
@@ -114,28 +114,28 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-          <LanguageProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <ScrollToTop />
-              <ScrollToTopButton />
-              <FloatingWhatsApp />
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/services/:service" element={<ServicePage />} />
-                  <Route path="/portfolio" element={<PortfolioPage />} />
-                  <Route path="/profile" element={<ProfilePage />} />
-                  <Route path="/blog/:slug" element={<BlogPage />} />
-                  <Route path="/success-story" element={<SuccessStoryPage />} />
-                  <Route path="/terms" element={<TermsPage />} />
-                  <Route path="/privacy" element={<PrivacyPage />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </BrowserRouter>
-          </LanguageProvider>
+        <LanguageProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <ScrollToTopButton />
+            <FloatingWhatsApp />
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/services/:service" element={<ServicePage />} />
+                <Route path="/portfolio" element={<PortfolioPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/blog/:slug" element={<BlogPage />} />
+                <Route path="/success-story" element={<SuccessStoryPage />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
