@@ -16,7 +16,7 @@ import ContactSection from '@/components/sections/ContactSection';
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -34,7 +34,10 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
-      <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ConsultationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

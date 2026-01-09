@@ -4,7 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import compression from "vite-plugin-compression";
-import sitemap from "vite-plugin-sitemap";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,28 +11,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-
+  base: "./",
   plugins: [
     react(),
-    sitemap({
-      hostname: "https://auramarketingsa.com",
-      dynamicRoutes: [
-        "/",
-        "/about",
-        "/portfolio",
-        "/success-story",
-        "/blog/ecommerce-guide",
-        "/blog/gulf-trend",
-        "/blog/commerce-future-2026",
-        "/services/campaigns",
-        "/services/ecommerce",
-        "/services/social-media",
-        "/services/motion-graphics",
-        "/profile",
-        "/privacy",
-        "/terms",
-      ],
-    }),
     compression({
       algorithm: "gzip",
       ext: ".gz",
