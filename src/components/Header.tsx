@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Menu, X, Globe, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,6 +12,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,6 +29,40 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // 🔹 Disable/Enable scroll when menu opens/closes
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
+  // 🔹 Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMobileMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "ar" ? "en" : "ar";
@@ -87,21 +122,13 @@ const Header = () => {
 
     window.history.replaceState(null, "", hash);
 
-    window.scrollTo({ top: 0, behavior: "auto" });
-
-    requestAnimationFrame(() => {
-      const headerOffset = 70;
-      const y =
-        element.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
-    });
+    element.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass py-3" : "bg-transparent py-5"
+      className={`sticky top-0 left-0 right-0 z-40 ${
+        isScrolled ? "glass py-3" : "bg-transparent py-3"
       }`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* LOGO */}
@@ -131,7 +158,7 @@ const Header = () => {
           {/* LANGUAGE */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-2 text-foreground/80 lg:hover:text-primary transition-colors">
+            className="flex items-center gap-2 text-foreground/80 lg:hover:text-primary transition-colors z-50">
             <Globe className="w-5 h-5" />
             <span className="text-sm font-medium">{isRTL ? "EN" : "عربي"}</span>
           </button>
@@ -148,7 +175,7 @@ const Header = () => {
           {/* MOBILE TOGGLE */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-foreground p-2">
+            className="lg:hidden text-foreground p-2 z-50">
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
             ) : (
@@ -158,34 +185,52 @@ const Header = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* OVERLAY + MOBILE MENU */}
       <AnimatePresence mode="wait">
         {isMobileMenuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass border-t border-border">
-            <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.key}
-                  onClick={() => handleNavClick(item)}
-                  className="text-foreground/80 hover:text-primary transition-colors py-2 text-lg text-start">
-                  {t(`nav.${item.key}`)}
-                </button>
-              ))}
+          <>
+            {/* 🔹 OVERLAY - Click outside to close */}
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden"
+              style={{ zIndex: 40 }}
+            />
 
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-aura rounded-full text-center mt-4 text-primary-foreground">
-                {t("nav.startNow")}
-              </a>
-            </nav>
-          </motion.div>
+            {/* MOBILE MENU */}
+            <motion.div
+              key="mobile-menu"
+              ref={menuRef}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden bg-black border-x border-b border-primary rounded-b-2xl absolute top-0 w-full pt-[5vh]"
+              style={{ zIndex: 41 }}>
+              <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => handleNavClick(item)}
+                    className="text-foreground/80 hover:text-primary transition-colors py-2 text-lg text-start">
+                    {t(`nav.${item.key}`)}
+                  </button>
+                ))}
+
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-aura rounded-full text-center mt-4 text-primary-foreground">
+                  {t("nav.startNow")}
+                </a>
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

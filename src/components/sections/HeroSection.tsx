@@ -26,10 +26,10 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
           {
             y: 0,
             opacity: 1,
-            stagger: 0.2,
+            stagger: 0.1,
             duration: 0.8,
-            ease: 'power3.out',
-            delay: 0.3
+            ease: 'linear',
+            delay: 0
           }
         );
       }, heroRef);
@@ -44,8 +44,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
     <section
       ref={heroRef}
       id="home"
-      className="relative h-screen flex items-center overflow-hidden"
-    >
+      className="relative h-screen flex items-center sm:bottom-[6vh]">
       {/* Full-screen Background Image with responsive sizing */}
       <div className="absolute inset-0">
         <img
@@ -59,70 +58,75 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
           src={heroMobile}
           alt="Aura Marketing Hero"
           loading="eager"
-          className="w-[500px] h-[580px] absolute top-[120px] object-cover sm:block md:hidden lg:hidden block"
+          className="w-[500px] h-[580px] absolute top-[6vh] object-cover sm:hidden block"
           sizes="100vw"
         />
         {/* Overlay for better text readability */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 lg:from-background/80 lg:via-background/50 lg:to-transparent" /> */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/10 via-background/40 to-background/40 lg:from-background/80 lg:via-background/50 lg:to-transparent hidden sm:block lg:hidden" />
       </div>
-
-      {/* Glowing orbs */}
-      <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-48 md:w-80 h-48 md:h-80 bg-primary/10 rounded-full blur-[100px] animate-pulse animation-delay-400" />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 pt-20 text-center">
-        <div ref={textRef} className={`max-w-2xl ${isRTL ? 'mr-0 ml-auto sm:text-right' : 'mr-0 ml-auto text-left'}`}>
+        <div
+          ref={textRef}
+          className={`max-w-2xl ${isRTL ? "mr-0 ml-auto sm:text-right" : "mr-0 ml-auto text-left"}`}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="animate-item"
-          >
+            className="animate-item">
             {/* <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               Aura Marketing
             </span> */}
           </motion.div>
 
-          <motion.div initial={{ opacity: 0.4 }}
+          <motion.div
+            initial={{ opacity: 0.4 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}>
-            <h1 className={`heroContentHeading animate-item text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight ${isRTL ? 'mb-6' : 'mb-2'}`}>
-              <span className="">{t('hero.title')}</span>
+            transition={{
+              duration: 0.8,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}>
+            <h1
+              className={`heroContentHeading animate-item text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight ${isRTL ? "mb-6" : "mb-2"}`}>
+              <span className="">{t("hero.title")}</span>
             </h1>
           </motion.div>
 
           <p className="hidden sm:block heroContentParagraph animate-item text-lg md:text-xl text-foreground/90 mb-4 leading-relaxed">
-            {t('hero.subtitle1') + ' ' + t('hero.subtitle2')}
+            {t("hero.subtitle1") + " " + t("hero.subtitle2")}
           </p>
 
           <div className="sm:hidden heroContentParagraph animate-item text-lg md:text-xl text-foreground/90 mb-4 leading-relaxed">
-            <p>{t('hero.subtitle1')}</p>
-            <p>{t('hero.subtitle2')}</p>
+            <p>{t("hero.subtitle1")}</p>
+            <p>{t("hero.subtitle2")}</p>
           </div>
 
           <p className="animate-item text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 sm:block hidden">
-            {t('hero.description')}
+            {t("hero.description")}
           </p>
 
           <div className="ctaButtons animate-item flex flex-row gap-3 sm:gap-4 sm:justify-start justify-center">
             <button
               onClick={onOpenModal}
-              className="btn-aura rounded-full flex items-center justify-center gap-2 text-primary-foreground text-[0.8rem] sm:text-base"
-            >
+              className="btn-aura rounded-full flex items-center justify-center gap-2 text-primary-foreground text-[0.8rem] sm:text-base">
               <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              {t('hero.cta')}
+              {t("hero.cta")}
             </button>
 
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline-aura rounded-full flex items-center justify-center gap-2 text-[0.8rem] sm:text-base"
-            >
+              className="btn-outline-aura rounded-full flex items-center justify-center gap-2 text-[0.8rem] sm:text-base">
               <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-              {t('hero.reachUs')}
-              {isRTL ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
+              {t("hero.reachUs")}
+              {isRTL ? (
+                <ArrowLeft className="w-4 h-4" />
+              ) : (
+                <ArrowRight className="w-4 h-4" />
+              )}
             </a>
           </div>
         </div>
@@ -133,9 +137,8 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-foreground/30 rounded-full flex justify-center p-2">
+        className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div className="w-6 h-10 border-2 border-foreground/30 rounded-full flex justify-center p-2 mb-[18vh] sm:mb-[8vh]">
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}

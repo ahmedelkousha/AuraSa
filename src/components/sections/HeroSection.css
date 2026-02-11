@@ -1,11 +1,11 @@
 @media (max-width: 640px) {
     .heroContentHeading{
-transform: translate(0px,-30vh)!important;
+transform: translate(0px,-40vh)!important;
 }
     .heroContentParagraph{
-transform: translate(0px,-32vh)!important;
+transform: translate(0px,-43vh)!important;
 }
 .ctaButtons{
-    transform: translate(0px,10vh)!important;
+    transform: translate(0px,-1vh)!important;
 }
 }
