@@ -39,5 +39,31 @@
   "screenshots": [],
   "related_applications": [],
   "prefer_related_applications": false,
-  "iarc_rating_id": ""
+  "iarc_rating_id": "",
+  "shortcuts": [
+    {
+      "name": "الخدمات | Services",
+      "short_name": "Services",
+      "description": "تصفح خدماتنا | Browse our services",
+      "url": "/#services",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "الأعمال | Portfolio",
+      "short_name": "Portfolio",
+      "description": "شاهد أعمالنا | View our work",
+      "url": "/portfolio",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ]
 }
