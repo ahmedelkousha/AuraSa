@@ -87,15 +87,9 @@ const Header = () => {
 
     window.history.replaceState(null, "", hash);
 
-    window.scrollTo({ top: 0, behavior: "auto" });
 
-    requestAnimationFrame(() => {
-      const headerOffset = 70;
-      const y =
-        element.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
-    });
+  
+      element.scrollIntoView({behavior: "smooth" });
   };
 
   return (

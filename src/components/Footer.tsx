@@ -50,36 +50,28 @@ const FooterDropdown = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleQuickLinkClick = (item: FooterItem) => {
-    // 🔹 Route navigation (Portfolio)
-    if (item.type === "route") {
-      navigate(item.path);
-      return;
-    }
+    const handleQuickLinkClick = (item: FooterItem) => {
+      // 🔹 Route navigation
+      if (item.type === "route") {
+        navigate(item.path);
+        return;
+      }
 
-    // 🔹 Jump links
-    const hash = item.hash;
+      // 🔹 Hash navigation
+      const hash = item.hash;
 
-    if (location.pathname !== "/") {
-      navigate("/" + hash, { replace: true });
-      return;
-    }
+      if (location.pathname !== "/") {
+        navigate("/" + hash, { replace: true });
+        return;
+      }
 
-    const element = document.querySelector(hash);
-    if (!element) return;
+      const element = document.querySelector(hash);
+      if (!element) return;
 
-    window.history.replaceState(null, "", hash);
+      window.history.replaceState(null, "", hash);
 
-    window.scrollTo({ top: 0, behavior: "auto" });
-
-    requestAnimationFrame(() => {
-      const headerOffset = 70;
-      const y =
-        element.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
-    });
-  };
+      element.scrollIntoView({ behavior: "smooth" });
+    };
 
   return (
     <div className="border-b border-border lg:border-none">

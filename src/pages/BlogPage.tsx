@@ -63,16 +63,15 @@ const BlogPage = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="pt-32 pb-20">
+        <main className="pt-8 pb-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl font-bold text-foreground mb-4">
-              {isRTL ? 'المقال غير موجود' : 'Article Not Found'}
+              {isRTL ? "المقال غير موجود" : "Article Not Found"}
             </h1>
             <button
-              onClick={() => navigate('/')}
-              className="text-primary hover:underline"
-            >
-              {isRTL ? 'العودة للرئيسية' : 'Back to Home'}
+              onClick={() => navigate("/")}
+              className="text-primary hover:underline">
+              {isRTL ? "العودة للرئيسية" : "Back to Home"}
             </button>
           </div>
         </main>

@@ -158,13 +158,13 @@ const PortfolioPage = () => {
           {/* Social Media Portfolio */}
           {renderImageCarousel(
             socialMediaGallery,
-            isRTL ? "إدارة وسائل التواصل الاجتماعي" : "Social Media Management"
+            isRTL ? "إدارة وسائل التواصل الاجتماعي" : "Social Media Management",
           )}
 
           {/* Paid Ads Portfolio */}
           {renderImageCarousel(
             adsGallery,
-            isRTL ? "الحملات الإعلانية المدفوعة" : "Paid Advertising Campaigns"
+            isRTL ? "الحملات الإعلانية المدفوعة" : "Paid Advertising Campaigns",
           )}
 
           {/* E-commerce Portfolio */}
@@ -172,7 +172,7 @@ const PortfolioPage = () => {
             ecommerceGallery,
             isRTL
               ? "المواقع والتجارة الإليكترونية"
-              : "Web & E-commerce Solutions"
+              : "Web & E-commerce Solutions",
           )}
 
           {/* Motion Graphics Video Portfolio */}

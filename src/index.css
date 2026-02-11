@@ -109,9 +109,7 @@
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+
 
   body {
     @apply bg-background text-foreground antialiased;
@@ -281,5 +279,12 @@
   }
 }
 
+#home,
+#services,
+#portfolio,
+#about,
+#contact {
+  scroll-margin-top: 70px;
+}
 
 /* GSAP animations will be handled in components */
