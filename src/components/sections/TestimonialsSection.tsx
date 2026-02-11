@@ -97,7 +97,7 @@ const TestimonialsSection = () => {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 1500, disableOnInteraction: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: true }}
           dir={isRTL ? "rtl" : "ltr"}
           breakpoints={{
             640: { slidesPerView: 1.5 },
@@ -108,10 +108,9 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
                 className="h-full">
                 <div className="relative h-full p-6 lg:p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 group">
                   {/* Quote icon */}
