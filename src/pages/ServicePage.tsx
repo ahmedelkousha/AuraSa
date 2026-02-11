@@ -60,7 +60,7 @@ import ads4 from "@/assets/ads-service/ads4.webp";
 import motionHero from "@/assets/motion-graphics/motionHero.webp";
 
 // Websites - Ecommerce Hero and Gallery Images
-import ecommerceHero from "@/assets/ecommerce/ecommerceHero.webp";
+import ecommerceHero from "@/assets/website-ecommerce/ecommerceHero.webp";
 
 const socialMediaGallery = [
   { id: 1, image: smm1, title: "Social Media Campaign 1" },
@@ -210,7 +210,6 @@ const ServicePage = () => {
   const pageDescription = t(`servicePage.${translationKey}.seo.description`);
   const pageKeywords = t(`servicePage.${translationKey}.seo.keywords`);
   const pageUrl = `https://auramarketingsa.com/services/${service}`;
-  const ogImage = heroImage || "/preview-logo.png";
 
   // Get number of features based on service
   // const getFeatureCount = () => {
@@ -241,7 +240,6 @@ const ServicePage = () => {
         <meta property="og:url" content={pageUrl} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
-        <meta property="og:image" content={ogImage} />
         <meta property="og:locale" content={isRTL ? "ar_SA" : "en_US"} />
         <meta property="og:site_name" content="Aura Marketing" />
 
@@ -250,7 +248,6 @@ const ServicePage = () => {
         <meta name="twitter:url" content={pageUrl} />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={ogImage} />
         <meta name="twitter:site" content="@auramarketingsa" />
 
         {/* Canonical URL */}
@@ -297,7 +294,7 @@ const ServicePage = () => {
       </Helmet>
 
       <Header />
-      <main className="pt-24 pb-20">
+      <main className="pt-8 pb-20">
         <div className="container mx-auto px-4">
           {/* Back Link */}
           <button

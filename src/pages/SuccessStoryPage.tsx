@@ -96,7 +96,7 @@ const SuccessStoryPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-32 pb-20">
+      <main className="pt-8 pb-20">
         <div className="container mx-auto px-4">
           {/* Back Link */}
           <Link
@@ -107,7 +107,7 @@ const SuccessStoryPage = () => {
             <span>{t('successStory.backToPreviousPage')}</span>
           </Link>
 
-          <img src={secretImage} alt="Secret Image" loading="lazy"
+          <img className='m-auto w-full md:w-[50%]' src={secretImage} alt="Secret Image" loading="lazy"
             decoding="async" />
 
           {/* Header */}

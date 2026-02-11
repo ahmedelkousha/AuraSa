@@ -73,7 +73,7 @@ const FooterDropdown = ({
     window.scrollTo({ top: 0, behavior: "auto" });
 
     requestAnimationFrame(() => {
-      const headerOffset = 100;
+      const headerOffset = 70;
       const y =
         element.getBoundingClientRect().top + window.scrollY - headerOffset;
 
