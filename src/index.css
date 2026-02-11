@@ -109,15 +109,11 @@
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
+
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-arabic);
-    overflow-x: hidden;
   }
 
   /* RTL support */
@@ -282,12 +278,13 @@
     box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
   }
 }
-/* #home,
+
+#home,
 #services,
 #portfolio,
 #about,
 #contact {
   scroll-margin-top: 70px;
-} */
+}
 
 /* GSAP animations will be handled in components */

@@ -95,7 +95,7 @@ const routes = [
     images: [],
   },
   {
-    path: "/blog/gulf-trend-2026",
+    path: "/blog/gulf-trend",
     priority: 0.7,
     changefreq: "monthly",
     images: [],

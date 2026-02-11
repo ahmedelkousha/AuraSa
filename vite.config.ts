@@ -1,17 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import compression from "vite-plugin-compression";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
   server: {
     host: "::",
     port: 8080,
   },
-  base: "./",
+  base: "/",
   plugins: [
     react(),
     compression({
@@ -23,43 +22,23 @@ export default defineConfig(({ mode }) => ({
     ViteImageOptimizer({
       // Modern formats (BEST)
       webp: {
-        quality: 75,
+        quality: 80,
       },
       avif: {
-        quality: 60,
+        quality: 80,
       },
 
       // Fallback formats
       png: {
-        quality: 70,
-      },
-      jpg: {
-        quality: 70,
+        quality: 80,
       },
       jpeg: {
-        quality: 75,
-      },
-
-      // SVG optimization
-      svg: {
-        multipass: true,
+        quality: 80,
       },
     }),
 
-    // Dev-only component tagger
-    mode === "development" && componentTagger(),
   ].filter(Boolean),
 
-  build: {
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-    chunkSizeWarningLimit: 700,
-  },
 
   resolve: {
     alias: {

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
   <url>
     <loc>https://auramarketingsa.com/</loc>
     <lastmod>2026-01-09</lastmod>
@@ -12,7 +10,6 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/" />
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/services/social-media</loc>
     <lastmod>2026-01-09</lastmod>
@@ -26,7 +23,6 @@
       <image:caption>Professional social media management by Aura Marketing</image:caption>
     </image:image>
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/services/motion-graphics</loc>
     <lastmod>2026-01-09</lastmod>
@@ -36,11 +32,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/services/motion-graphics" />
     <image:image>
       <image:loc>https://auramarketingsa.com/assets/motion-graphics/motionHero.webp</image:loc>
-      <image:title>Motion Graphics & Video Editing Services</image:title>
+      <image:title>Motion Graphics and Video Editing Services</image:title>
       <image:caption>Professional motion graphics and video editing by Aura Marketing</image:caption>
     </image:image>
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/services/campaigns</loc>
     <lastmod>2026-01-09</lastmod>
@@ -54,7 +49,6 @@
       <image:caption>Professional paid advertising campaign management by Aura Marketing</image:caption>
     </image:image>
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/services/ecommerce</loc>
     <lastmod>2026-01-09</lastmod>
@@ -64,11 +58,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/services/ecommerce" />
     <image:image>
       <image:loc>https://auramarketingsa.com/assets/ecommerce/ecommerceHero.webp</image:loc>
-      <image:title>E-commerce Website Design & Development Services</image:title>
+      <image:title>E-commerce Website Design and Development Services</image:title>
       <image:caption>Professional e-commerce website development by Aura Marketing</image:caption>
     </image:image>
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/portfolio</loc>
     <lastmod>2026-01-09</lastmod>
@@ -77,7 +70,6 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/portfolio" />
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/portfolio" />
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/profile</loc>
     <lastmod>2026-01-09</lastmod>
@@ -86,7 +78,6 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/profile" />
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/profile" />
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/success-story</loc>
     <lastmod>2026-01-09</lastmod>
@@ -95,7 +86,6 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/success-story" />
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/success-story" />
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/blog/ecommerce-guide</loc>
     <lastmod>2026-01-09</lastmod>
@@ -104,16 +94,14 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/blog/ecommerce-guide" />
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/blog/ecommerce-guide" />
   </url>
-
   <url>
-    <loc>https://auramarketingsa.com/blog/gulf-trend-2026</loc>
+    <loc>https://auramarketingsa.com/blog/gulf-trend</loc>
     <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/blog/gulf-trend-2026" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/blog/gulf-trend-2026" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/blog/gulf-trend" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/blog/gulf-trend" />
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/blog/commerce-future-2026</loc>
     <lastmod>2026-01-09</lastmod>
@@ -122,7 +110,6 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/blog/commerce-future-2026" />
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/blog/commerce-future-2026" />
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/terms</loc>
     <lastmod>2026-01-09</lastmod>
@@ -131,7 +118,6 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/terms" />
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/terms" />
   </url>
-
   <url>
     <loc>https://auramarketingsa.com/privacy</loc>
     <lastmod>2026-01-09</lastmod>
@@ -140,5 +126,4 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://auramarketingsa.com/privacy" />
     <xhtml:link rel="alternate" hreflang="en" href="https://auramarketingsa.com/privacy" />
   </url>
-
 </urlset>

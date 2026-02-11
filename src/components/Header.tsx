@@ -87,21 +87,15 @@ const Header = () => {
 
     window.history.replaceState(null, "", hash);
 
-    window.scrollTo({ top: 0, behavior: "auto" });
 
-    requestAnimationFrame(() => {
-      const headerOffset = 70;
-      const y =
-        element.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
-    });
+  
+      element.scrollIntoView({behavior: "smooth" });
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass py-3" : "bg-transparent py-5"
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "glass py-2" : "bg-transparent py-4"
       }`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* LOGO */}
@@ -131,7 +125,7 @@ const Header = () => {
           {/* LANGUAGE */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-2 text-foreground/80 lg:hover:text-primary transition-colors">
+            className="flex items-center gap-2 text-foreground/80 lg:hover:text-primary transition-colors z-10">
             <Globe className="w-5 h-5" />
             <span className="text-sm font-medium">{isRTL ? "EN" : "عربي"}</span>
           </button>
@@ -148,7 +142,7 @@ const Header = () => {
           {/* MOBILE TOGGLE */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-foreground p-2">
+            className="lg:hidden text-foreground p-2 z-10">
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
             ) : (
@@ -163,10 +157,11 @@ const Header = () => {
         {isMobileMenuOpen && (
           <motion.div
             key="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass border-t border-border">
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{duration:0.2}}
+            className="lg:hidden glass border-t border-border absolute top-0 w-full pt-[5vh]">
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navItems.map((item) => (
                 <button
