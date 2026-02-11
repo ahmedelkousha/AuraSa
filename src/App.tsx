@@ -44,30 +44,28 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-          {" "}
-          {/* ← ADD THIS BACK */}
-          <LanguageProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <ScrollToTop />
-              <ScrollToTopButton />
-              <FloatingWhatsApp />
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/services/:service" element={<ServicePage />} />
-                  <Route path="/portfolio" element={<PortfolioPage />} />
-                  <Route path="/profile" element={<ProfilePage />} />
-                  <Route path="/blog/:slug" element={<BlogPage />} />
-                  <Route path="/success-story" element={<SuccessStoryPage />} />
-                  <Route path="/terms" element={<TermsPage />} />
-                  <Route path="/privacy" element={<PrivacyPage />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </BrowserRouter>
-          </LanguageProvider>
+        <LanguageProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <ScrollToTopButton />
+            <FloatingWhatsApp />
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/services/:service" element={<ServicePage />} />
+                <Route path="/portfolio" element={<PortfolioPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/blog/:slug" element={<BlogPage />} />
+                <Route path="/success-story" element={<SuccessStoryPage />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
